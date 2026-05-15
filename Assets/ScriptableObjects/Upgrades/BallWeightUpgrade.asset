@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222deaaaf69d57aeeb04c70e0b6eaabe, type: 3}
+  m_Name: BallWeightUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::Upgrade
+  Stat: {fileID: 11400000, guid: 5257c746b6aeaf43d8b60834980a43d9, type: 2}
+  RequiredUpgrade: {fileID: 11400000, guid: 5f1fc9403254f7280b118651b3f607eb, type: 2}
+  Level: 0
+  UpgradeValues:
+  - 0.5
+  Sprite: {fileID: 0}
