@@ -21,7 +21,7 @@ public class Stat : ScriptableObject
 
     public event Action OnValueChanged;
 
-    public void Awake()
+    public void OnEnable()
     {
         _value = DefaultValue;
     }

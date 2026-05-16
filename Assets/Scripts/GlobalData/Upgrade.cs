@@ -8,6 +8,7 @@ public class Upgrade : ScriptableObject
 {
     public Stat Stat;
     [CanBeNull] public Upgrade RequiredUpgrade;
+    [System.NonSerialized]
     public int Level = 0;
     public List<float> DeltaUpgradeValues = new List<float>();
     public Sprite Sprite;
@@ -32,7 +33,7 @@ public class Upgrade : ScriptableObject
         Stat.Value += DeltaUpgradeValues[Level - 1];
     }
 
-    public void Awake()
+    public void OnEnable()
     {
         Level = 0;
     }

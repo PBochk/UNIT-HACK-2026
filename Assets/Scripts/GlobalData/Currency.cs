@@ -23,7 +23,7 @@ public class Currency : ScriptableObject
 
     public event Action OnCurrencyValueChanged;
 
-    public void Awake()
+    public void OnEnable()
     {
         Amount = DefaultAmount;
     }

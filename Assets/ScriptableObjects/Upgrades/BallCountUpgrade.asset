@@ -15,6 +15,6 @@ MonoBehaviour:
   Stat: {fileID: 11400000, guid: d14273abfb32eb9a4b45358da6df99fe, type: 2}
   RequiredUpgrade: {fileID: 0}
   Level: 0
-  UpgradeValues:
-  - 2
+  DeltaUpgradeValues:
+  - 1
   Sprite: {fileID: 0}
