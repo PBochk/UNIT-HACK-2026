@@ -97,8 +97,8 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler, IPointerEn
         tmp.text = text;
 
         // Анимация вылетающего текста: летит вверх и растворяется
-        textObj.transform.DOMoveY(transform.position.y + 50f, 1f).SetEase(Ease.OutCubic);
-        tmp.DOFade(0, 1f).SetDelay(0.5f).OnComplete(() => Destroy(textObj));
+        textObj.transform.DOMoveY(transform.position.y + 1f, 0.5f).SetEase(Ease.OutCubic);
+        tmp.DOFade(0, 0.4f).SetDelay(0.4f).OnComplete(() => Destroy(textObj));
     }
 
     // private void ShowTooltip()
