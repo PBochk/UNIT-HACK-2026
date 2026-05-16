@@ -18,7 +18,6 @@ public class ObstaclePlace : MonoBehaviour
 
     private void HandlePlaceClicked()
     {
-        Debug.Log("Place clicked");
         OnPlaceClicked.Invoke(this);
     }
     

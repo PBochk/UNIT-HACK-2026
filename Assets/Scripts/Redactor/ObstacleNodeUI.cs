@@ -9,21 +9,33 @@ public class ObstacleNodeUI : MonoBehaviour
     [SerializeField] private TMP_Text priceText;
     [field: SerializeField] public ObstacleType Type { get; private set; }
     [field: SerializeField] public Stat Unlocked { get; private set; }
-    [field: SerializeField] public Currency Currency { get; private set; }
+    [field: SerializeField] public Stat CurrentAmount { get; private set; }
+    [field: SerializeField] public Stat MaxAmount { get; private set; }
     [field: SerializeField] public GameObject Prefab { get;  private set; }
     [SerializeField] private Button _button;
     public UnityEvent<ObstacleNodeUI> OnNodeSelected;
-
-    public int Price => (int)Type;
-    public bool IsEnough => Currency.Amount >= Price;
+    
+    public bool IsAvailable => CurrentAmount.Value < MaxAmount.Value;
     private void Start()
     {
-        priceText.text = Price.ToString();
         _button.onClick.AddListener(() => OnNodeSelected?.Invoke(this));
+        UpdateText();
     }
 
-    public void SpendCurrency()
+    public void IncreaseAmount()
     {
-        Currency.Amount -= Price;
+        CurrentAmount.Value++;
+        UpdateText();
+    }
+    
+    public void DecreaseAmount()
+    {
+        CurrentAmount.Value--;
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        priceText.text = CurrentAmount.Value.ToString();
     }
 }

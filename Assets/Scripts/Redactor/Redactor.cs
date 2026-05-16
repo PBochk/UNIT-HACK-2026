@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Redactor : MonoBehaviour
 {
-    [SerializeField] private GameObject SelectionScreen;
+    [SerializeField] private GameObject selectionScreen;
     [SerializeField] private List<ObstacleNodeUI> nodesUI;
     [SerializeField] private List<ObstaclePlace> places;
-    // [SerializeField] private SerializedDictionary<ObstacleType, ObstacleNodeUI> obstacles;
     [SerializeField] private Button deleteObstacle;
+    private Dictionary<ObstaclePlace, ObstacleNodeUI> _placesToUI = new();
     private ObstaclePlace _currentPlace;
+    
     private void Awake()
     {
         foreach (var place in places)
@@ -28,21 +29,18 @@ public class Redactor : MonoBehaviour
 
     private void HandlePlaceSelected(ObstaclePlace place)
     {
-        Debug.Log("Place selected");
         _currentPlace = place;
-        // if (place.Unlocked.Value != 1 || (int)place.Type < place.Currency.Value) return;
-        // place.PlaceObstacle(obstacles[place.Type]);
     }
 
     private void HandleObstacleSelected(ObstacleNodeUI nodeUI)
     {
-        Debug.Log("Obstacle selected");
         // if (!_currentPlace || !nodeUI.IsEnough) return;
         if (!_currentPlace) return;
         else
         {
             _currentPlace.PlaceObstacle(nodeUI.Prefab);
-            nodeUI.SpendCurrency();
+            _placesToUI.Add(_currentPlace, nodeUI);
+            nodeUI.DecreaseAmount();
         }
     }
 
@@ -50,14 +48,16 @@ public class Redactor : MonoBehaviour
     {
         if (!_currentPlace || !_currentPlace.IsPlaced) return;
         _currentPlace.RemoveObstacle();
+        _placesToUI[_currentPlace].DecreaseAmount();
+        _placesToUI.Remove(_currentPlace);
     }
     
     private void ShowSelectionScreen()
     {
-        SelectionScreen.SetActive(true); //TODO: animations
+        selectionScreen.SetActive(true); //TODO: animations
     }
     private void HideSelectionScreen()
     {
-        SelectionScreen.SetActive(false);
+        selectionScreen.SetActive(false);
     }
 }

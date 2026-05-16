@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200 bucks
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -311,7 +311,8 @@ MonoBehaviour:
   priceText: {fileID: 527946458990813079}
   <Type>k__BackingField: 100
   <Unlocked>k__BackingField: {fileID: 11400000, guid: 48c91b77166e19f4183972ae6468b105, type: 2}
-  <Currency>k__BackingField: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+  <CurrentAmount>k__BackingField: {fileID: 0}
+  <MaxAmount>k__BackingField: {fileID: 0}
   <Prefab>k__BackingField: {fileID: 4655508838290082362, guid: ee00ad96ac8b117459ee18b10c37f7d4, type: 3}
   _button: {fileID: 3466663766224180222}
   OnNodeSelected:

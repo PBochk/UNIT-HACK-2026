@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ebc7db60bd682499c9fdbf416dfd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Redactor
-  SelectionScreen: {fileID: 197871224}
+  selectionScreen: {fileID: 0}
   nodesUI:
   - {fileID: 843647366}
   places:
@@ -1285,11 +1285,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2420030812474010625, guid: e9a394fd9e52ae44e9cd87849d1e4e6d, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -3.728653
+      value: -2.465133
       objectReference: {fileID: 0}
     - target: {fileID: 2420030812474010625, guid: e9a394fd9e52ae44e9cd87849d1e4e6d, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.03493
+      value: -4.02
       objectReference: {fileID: 0}
     - target: {fileID: 6818968553667486283, guid: e9a394fd9e52ae44e9cd87849d1e4e6d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1373,7 +1373,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2420030812474010625, guid: 05c44b6706f2d2049a6baa0e1a20becb, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -1.4506058
+      value: 0.56939423
       objectReference: {fileID: 0}
     - target: {fileID: 6818968553667486283, guid: 05c44b6706f2d2049a6baa0e1a20becb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1909,6 +1909,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4465353619875454957, guid: cbb04fd0d113d0c4f9cbd0496dfea82b, type: 3}
+      propertyPath: <MaxAmount>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 71328d0913b16024db08399bc6d7bee4, type: 2}
+    - target: {fileID: 4465353619875454957, guid: cbb04fd0d113d0c4f9cbd0496dfea82b, type: 3}
+      propertyPath: <CurrentAmount>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ea461fe27b87bc478932dbe6c50b144, type: 2}
     - target: {fileID: 8255227368862324359, guid: cbb04fd0d113d0c4f9cbd0496dfea82b, type: 3}
       propertyPath: m_Name
       value: Node
