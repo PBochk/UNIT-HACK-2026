@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public sealed class CreepController : MonoBehaviour
+public sealed class SpaceInvaderController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float moveDistance = 3f;
@@ -68,5 +68,22 @@ public sealed class CreepController : MonoBehaviour
         {
             _moveDirection *= -1;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 startPos = Application.isPlaying ? _startPosition : transform.position;
+
+        float leftX = startPos.x - moveDistance;
+        float rightX = startPos.x + moveDistance;
+        float y = startPos.y;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(new Vector3(leftX, y, 0), new Vector3(rightX, y, 0));
+
+        // Маленькие отметки на концах
+        var markSize = 0.2f;
+        Gizmos.DrawLine(new Vector3(leftX, y - markSize, 0), new Vector3(leftX, y + markSize, 0));
+        Gizmos.DrawLine(new Vector3(rightX, y - markSize, 0), new Vector3(rightX, y + markSize, 0));
     }
 }
