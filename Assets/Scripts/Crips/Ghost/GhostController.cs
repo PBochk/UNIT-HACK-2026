@@ -21,7 +21,7 @@ public sealed class GhostController : MonoBehaviour
         GetComponent<Collider2D>().isTrigger = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveSnake();
     }

@@ -19,7 +19,7 @@ public sealed class SpaceInvaderController : MonoBehaviour
         _shootTimer = shootCooldown;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
         HandleShooting();

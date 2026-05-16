@@ -35,7 +35,7 @@ public sealed class Flipper : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         bool isPressed = flipActionReference.action.IsPressed();
         _motor.motorSpeed = (isPressed ? hitStrength : -hitStrength)*_reversionMultiplier;
