@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Name
-      value: GravityBall
+      value: LowGravityBall
       objectReference: {fileID: 0}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Mass
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 73bfe50ad079ef94d9bca444ee014069, type: 2}
+      objectReference: {fileID: 6200000, guid: 9430b34ec9063244e8486e08d5be3285, type: 2}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_AngularDamping

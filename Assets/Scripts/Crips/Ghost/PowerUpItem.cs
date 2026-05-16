@@ -19,7 +19,6 @@ public sealed class PowerUpItem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (!collider.CompareTag("Ball")) return;
-        Debug.Log(collider.name);
         BallController ballState = collider.GetComponent<BallController>();
         if (ballState != null)
         {
