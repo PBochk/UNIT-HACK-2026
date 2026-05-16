@@ -30,7 +30,6 @@ public sealed class ProjectileController : MonoBehaviour
         }
         else if (collider.CompareTag("Wall"))
         {
-            Debug.LogError(gameObject.name);
             Destroy(gameObject);
         }
     }
