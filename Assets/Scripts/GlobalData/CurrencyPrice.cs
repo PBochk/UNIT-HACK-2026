@@ -2,5 +2,5 @@
 public struct CurrencyPrice
 {
     public Currency Currency;
-    public int amount;
+    public int Amount;
 }

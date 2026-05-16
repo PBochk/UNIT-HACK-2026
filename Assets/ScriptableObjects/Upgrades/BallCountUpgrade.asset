@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   Stat: {fileID: 11400000, guid: d14273abfb32eb9a4b45358da6df99fe, type: 2}
   RequiredUpgrade: {fileID: 0}
-  Level: 0
-  DeltaUpgradeValues:
-  - 1
+  Levels:
+  - Price:
+    - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+      Amount: 30
+    DeltaUpgradeValue: 1
+  - Price:
+    - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+      Amount: 40
+    DeltaUpgradeValue: 1
+  - Price:
+    - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+      Amount: 50
+    DeltaUpgradeValue: 1
   Sprite: {fileID: 0}
