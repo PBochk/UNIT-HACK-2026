@@ -29,14 +29,11 @@ public class Redactor : MonoBehaviour
 
     private void HandlePlaceSelected(ObstaclePlace place)
     {
-        Debug.Log("Place selected");
         _currentPlace = place;
-        
     }
 
     private void HandleObstacleSelected(ObstacleNodeUI nodeUI)
     {
-        Debug.Log("Obstacle selected");
         // if (!_currentPlace || !nodeUI.IsEnough) return;
         if (!_currentPlace) return;
         else
