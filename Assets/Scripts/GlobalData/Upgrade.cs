@@ -18,19 +18,21 @@ public class Upgrade : ScriptableObject
     public float CurrentDeltaValue => Level == 0 ? 0 : Levels[Level - 1].DeltaUpgradeValue;
     public bool Upgraded => Level != 0;
     public event Action OnUpgradeGot;
+    public event Action OnLevelUp;
 
-    public void AddLevel()
+    // В классе Upgrade измени сигнатуру и добавь возвращаемые значения:
+    public bool AddLevel()
     {
-        if ((Level + 1) > Levels.Count)
+        if (Level >= Levels.Count)
         {
             Debug.LogWarning("You should not upgrade this, because there is no upgrade set for this");
-            return;
+            return false; // Достигнут макс. уровень
         }
-        
+    
         if (Levels[Level].Price.Any(p => p.Amount > p.Currency.Amount))
         {
             Debug.LogWarning("Not enough to buy");
-            return;
+            return false; // Не хватает денег
         }
 
         foreach (var price in Levels[Level].Price)
@@ -38,15 +40,16 @@ public class Upgrade : ScriptableObject
             Debug.Log($"The price is {price.Amount} of {price.Currency.Id}");
             price.Currency.Amount -= price.Amount;
         }
-        
+    
         Level++;
         if (Level == 1)
         {
             OnUpgradeGot?.Invoke();
         }
-        Debug.Log($"Upgrade {name} level: {Level}");
-        
+    
         Stat.Value += CurrentDeltaValue;
+        OnLevelUp?.Invoke(); // Вызываем OnLevelUp, он у тебя объявлен, но не использовался
+        return true; // Покупка успешна!
     }
 
     public void OnEnable()
