@@ -4,7 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Currency", menuName = "Scriptable Objects/Currency")]
 public class Currency : ScriptableObject
 {
-    [SerializeField]
+    [SerializeField] public int DefaultAmount;
+    
+    [System.NonSerialized]
     private int _amount;
     public int Amount
     {
@@ -20,4 +22,9 @@ public class Currency : ScriptableObject
     public Sprite Icon;
 
     public event Action OnCurrencyValueChanged;
+
+    public void Awake()
+    {
+        Amount = DefaultAmount;
+    }
 }

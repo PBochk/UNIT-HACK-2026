@@ -31,4 +31,9 @@ public class Upgrade : ScriptableObject
         
         Stat.Value += DeltaUpgradeValues[Level - 1];
     }
+
+    public void Awake()
+    {
+        Level = 0;
+    }
 }
