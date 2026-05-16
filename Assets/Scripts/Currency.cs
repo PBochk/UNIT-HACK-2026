@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Currency", menuName = "Scriptable Objects/Currency")]
 public class Currency : ScriptableObject
 {
+    [SerializeField]
     private int _amount;
-    [field: SerializeField]
     public int Amount
     {
         get => _amount;

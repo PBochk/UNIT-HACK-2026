@@ -5,7 +5,6 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     public Upgrade Upgrade;
-    
     private Upgrade Required;
 
     public void Start()
