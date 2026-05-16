@@ -542,8 +542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoardManager
   ballPrefab: {fileID: 2077113750847191477, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
   ballSpawnOffsetY: 1.5
-  totalBalls: 3
-  ballSpawnCooldown: 3
+  totalBalls: 100
+  ballSpawnCooldown: 1
 --- !u!114 &740908959291361064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,10 +556,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c69b6ff90cf4aa49fa51e7680ac1ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallsList
-  regularBallPrefab: {fileID: -8643964968157679921, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+  regularBallPrefab: {fileID: 3895350978245932357, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
   unusualBalls:
-  - prefab: {fileID: 0}
-    dropChanceStat: {fileID: 0}
+  - prefab: {fileID: 3895350978245932357, guid: d56c0b75d41188744a643a9f0404c4f3, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: d973cba5154cc9946be8305dd1eecb5f, type: 2}
+  - prefab: {fileID: 3895350978245932357, guid: d43f64af8fdeb334fb8c3d41ec50f079, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: 5726ee58cebaf724b85820b52d64a9df, type: 2}
+  - prefab: {fileID: 3895350978245932357, guid: d56c0b75d41188744a643a9f0404c4f3, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: e1265fae20929ce4aa80caccd569d1a9, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
