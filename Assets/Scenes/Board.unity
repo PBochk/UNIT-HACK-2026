@@ -291,6 +291,8 @@ MonoBehaviour:
   suctionForce: 120
   entryImpulse: 0
   redirectStrength: 1
+  suctionDuration: 1.5
+  cooldownDuration: 5
 --- !u!58 &214196085
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -326,7 +328,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.62
+  m_Radius: 2.48
 --- !u!212 &214196086
 SpriteRenderer:
   serializedVersion: 2
