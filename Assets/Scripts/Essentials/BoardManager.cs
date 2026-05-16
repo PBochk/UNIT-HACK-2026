@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public sealed class BoardManager : MonoBehaviour
     [SerializeField] private float ballSpawnOffsetY = 1.5f;
     [SerializeField] private int totalBalls = 3;
     [SerializeField] private float ballSpawnCooldown = 3f;
+    
+    public Action OnBattleCompleted;
 
     private PlungerController _plunger;
     private BallsList _ballsList;
