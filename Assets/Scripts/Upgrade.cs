@@ -24,7 +24,7 @@ public class Upgrade : ScriptableObject
             return;
         }
         Level++;
-        if (Level == 0)
+        if (Level == 1)
         {
             OnUpgradeGot?.Invoke();
         }

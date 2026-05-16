@@ -9,6 +9,7 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler
 
     public void Start()
     {
+        Debug.Log($"Upgrade {Upgrade.name} Level = {Upgrade.Level}");
         if (Upgrade.RequiredUpgrade != null)
         {
             gameObject.SetActive(false);
