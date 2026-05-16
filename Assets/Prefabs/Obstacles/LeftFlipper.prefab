@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1047696065513527084}
   - component: {fileID: 2420030812474010625}
   - component: {fileID: 7207627913165071293}
+  - component: {fileID: 8075359719400295134}
   m_Layer: 0
   m_Name: LeftFlipper
   m_TagString: Untagged
@@ -177,7 +178,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -208,12 +209,12 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -2.4756646, y: 0}
-  m_ConnectedAnchor: {x: -2.495133, y: -4}
+  m_ConnectedAnchor: {x: -2.465133, y: -4.02}
   m_UseConnectedAnchor: 1
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 1500
+    m_MotorSpeed: 50000
+    m_MaximumMotorForce: 50000
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: 20
@@ -233,3 +234,18 @@ MonoBehaviour:
   flipActionReference: {fileID: 360539334041682042, guid: 94b34d2c12b68f14caeded30a69ebb97, type: 3}
   hitStrength: 1500
   isReverted: 1
+--- !u!114 &8075359719400295134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177152074665926184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d3a24fdb7b4c4b8a4471394a1c53a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScorableTarget
+  scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+  cooldownDuration: 2
+  scores: 10

@@ -25,7 +25,7 @@ public sealed class ScorableTarget : MonoBehaviour
     private void TriggerTarget()
     {
         _canTrigger = false;
-        scoreValue.Amount +=  scores;
+        scoreValue.Amount += scores;
         Debug.Log(scoreValue.Amount);
         OnScoreAwarded?.Invoke(scoreValue);
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - New tag
   - Ball
+  - Obstacle
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -45,3 +47,4 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  - Layer 1

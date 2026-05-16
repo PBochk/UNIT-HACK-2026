@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f51b0604f14560b05a71f67f88cf49, type: 3}
   m_Name: Currency1
   m_EditorClassIdentifier: Assembly-CSharp::Currency
-  _amount: 0
-  Name: Currency1
-  Icon: {fileID: 0}
+  DefaultAmount: 100
+  Id: Currency1
+  DisplayName: 
+  Icon: {fileID: 7804385554484129930, guid: f3c5d6adbf31300b7b762e0d26036ca1, type: 3}
