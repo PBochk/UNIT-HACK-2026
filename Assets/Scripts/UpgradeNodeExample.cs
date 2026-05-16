@@ -21,7 +21,7 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Click!");
-        if (Upgrade.UpgradeValues.Count <= Upgrade.Level) return;
+        if (Upgrade.DeltaUpgradeValues.Count <= Upgrade.Level) return;
         Upgrade.AddLevel();       
         Debug.Log(Upgrade.Level);
     }

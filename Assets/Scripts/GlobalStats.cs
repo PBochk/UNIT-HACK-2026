@@ -4,6 +4,7 @@ using UnityEngine;
 public class GlobalStats : MonoBehaviour
 {
     public static GlobalStats Instance { get; private set; }
+    
     [SerializeField]
     public List<Stat> AllStats = new List<Stat>();
 
