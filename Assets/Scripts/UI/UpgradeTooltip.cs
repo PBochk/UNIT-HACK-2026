@@ -40,7 +40,6 @@ public class UpgradeTooltip : MonoBehaviour
     public void Show(Upgrade upgrade)
     {
         if (upgrade == null) return;
-
         tooltipPanel.SetActive(true);
 
         if (titleText != null) titleText.text = upgrade.Stat.DisplayName;
@@ -49,7 +48,7 @@ public class UpgradeTooltip : MonoBehaviour
         int currentLevel = upgrade.Level;
         int maxLevel = upgrade.Levels.Count;
 
-        if (levelText != null) levelText.text = $"{currentLevel} / {maxLevel}";
+        if (levelText != null) levelText.text = $"Уровень: {currentLevel} / {maxLevel}";
 
         bool hasNextLevel = currentLevel < maxLevel;
 
@@ -60,7 +59,7 @@ public class UpgradeTooltip : MonoBehaviour
             {
                 float nextDelta = upgrade.Levels[currentLevel].DeltaUpgradeValue;
                 float nextValue = currentValue + nextDelta;
-                valueText.text = $"{currentValue} → <color=#00FF00>{nextValue}</color>";
+                valueText.text = $"{currentValue} → {nextValue}";
             }
             else
             {
@@ -102,10 +101,9 @@ public class UpgradeTooltip : MonoBehaviour
             if (infoPriceText != null)
             {
                 infoPriceText.gameObject.SetActive(true);
-                infoPriceText.text = "<color=#FFD700>Максимальный уровень</color>";
+                infoPriceText.text = "Максимальный уровень";
             }
         }
-
         if (followMouse) UpdatePosition();
     }
 
@@ -117,23 +115,16 @@ public class UpgradeTooltip : MonoBehaviour
     private void ClearPriceContainer()
     {
         if (priceContainer == null) return;
-        
         foreach (Transform child in priceContainer)
         {
             Destroy(child.gameObject);
         }
     }
 
-    // ИЗМЕНЕНО: Логика отслеживания мыши через New Input System
     private void UpdatePosition()
     {
-        // Проверяем, подключена ли мышь в данный момент
         if (Mouse.current == null) return;
-
-        // Считываем позицию мыши в экранных координатах
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-        
-        // Устанавливаем позицию тултипа с учетом смещения
         transform.position = (Vector3)mousePosition + offset;
     }
 }

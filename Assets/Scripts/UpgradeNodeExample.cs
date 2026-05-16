@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using TMPro;
 using System.Text;
+using UnityEngine.UI;
 
 public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -13,6 +14,7 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler, IPointerEn
     [SerializeField] private RectTransform nodeRect;
     [SerializeField] private GameObject floatingTextPrefab; 
     [SerializeField] private UpgradeTooltip tooltip; // РАСКОММЕНТИРОВАНО: Ссылка на скрипт тултипа
+    [SerializeField] private Image icon;
 
     private Upgrade Required;
     private Vector3 originalScale;
@@ -29,12 +31,17 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler, IPointerEn
         {
             tooltip.transform.SetParent(tooltipCanvas.transform);
         }
-
+        
         if (Upgrade.RequiredUpgrade != null)
         {
             gameObject.SetActive(false);
             Required = Upgrade.RequiredUpgrade;
             Required.OnUpgradeGot += () => gameObject.SetActive(true);
+        }
+
+        if (Upgrade.Sprite != null)
+        {
+            icon.sprite = Upgrade.Sprite;
         }
     }
 
@@ -104,8 +111,13 @@ public class UpgradeNodeExample : MonoBehaviour, IPointerDownHandler, IPointerEn
         GameObject textObj = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform.parent);
         TextMeshProUGUI tmp = textObj.GetComponent<TextMeshProUGUI>();
         tmp.text = text;
+        var x = Random.Range(-75, 75);
+        var y = Random.Range(-75, 75);
+        var offset = new Vector3(x, y, 0);
 
-        textObj.transform.DOMoveY(transform.position.y + 1f, 0.5f).SetEase(Ease.OutCubic);
+        tmp.transform.position += offset;
+
+        textObj.transform.DOMoveY(transform.position.y + 50f, 0.5f).SetEase(Ease.OutCubic);
         tmp.DOFade(0, 0.4f).SetDelay(0.4f).OnComplete(() => Destroy(textObj));
     }
 }
