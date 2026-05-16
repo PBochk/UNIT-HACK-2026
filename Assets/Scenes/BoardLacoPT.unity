@@ -460,6 +460,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 703c3e124ffa92945b028af6d56738fe, type: 3}
+--- !u!1 &1704140333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704140335}
+  - component: {fileID: 1704140334}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1704140334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704140333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f294921819908c34886536822c04f383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &1704140335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704140333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6919, y: -0.46371, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &740908959291361060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -468,6 +512,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1464346205958319076, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: launchActionName
+      value: Plunger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842346664011996769, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: flipActionName
+      value: LeftFlipper
+      objectReference: {fileID: 0}
     - target: {fileID: 3649802060317297845, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -512,6 +564,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 9430b34ec9063244e8486e08d5be3285, type: 2}
+    - target: {fileID: 8416991286067710836, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: flipActionName
+      value: RightFlipper
+      objectReference: {fileID: 0}
     - target: {fileID: 8418522165791622731, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_Name
       value: Board
@@ -587,7 +643,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 432738753668037945, guid: e66c0741b45441c45a1d57b2bb994a28, type: 3}
       propertyPath: entryImpulse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2381622051012047318, guid: e66c0741b45441c45a1d57b2bb994a28, type: 3}
       propertyPath: m_Name
@@ -633,6 +689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6987856905352795869, guid: e66c0741b45441c45a1d57b2bb994a28, type: 3}
+      propertyPath: m_SortingOrder
+      value: -8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -646,3 +706,4 @@ SceneRoots:
   - {fileID: 740908959291361060}
   - {fileID: 574364824}
   - {fileID: 764957194}
+  - {fileID: 1704140335}
