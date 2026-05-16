@@ -15,7 +15,8 @@ public class Currency : ScriptableObject
             OnCurrencyValueChanged?.Invoke();
         }
     }
-    public string Name;
+    public string Id;
+    public string DisplayName;
     public Sprite Icon;
 
     public event Action OnCurrencyValueChanged;
