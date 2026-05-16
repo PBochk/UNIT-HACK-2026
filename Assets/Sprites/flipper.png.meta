@@ -1,10 +1,37 @@
 fileFormatVersion: 2
-guid: f07f47651190e2ca9bf50f78a9b57beb
+guid: f1798051c370b7f4c8d94d50e18e9989
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2797353370611925652
-    second: kyopi_0
+      213: -247996242125104783
+    second: flipper_0
+  - first:
+      213: 3521510943198494494
+    second: flipper_1
+  - first:
+      213: -3044256783311549685
+    second: flipper_2
+  - first:
+      213: 2660265437255219225
+    second: flipper_3
+  - first:
+      213: 6800316158577393132
+    second: flipper_4
+  - first:
+      213: 1691743226366108493
+    second: flipper_5
+  - first:
+      213: 5162851662616317946
+    second: flipper_6
+  - first:
+      213: -4068239811426758781
+    second: flipper_7
+  - first:
+      213: -6591521795942108514
+    second: flipper_8
+  - first:
+      213: 4535388941504096656
+    second: flipper_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +127,68 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kyopi_0
+      name: flipper_7
       rect:
         serializedVersion: 2
-        x: 3
-        y: 10
-        width: 682
-        height: 582
+        x: 212
+        y: 95
+        width: 975
+        height: 428
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      outline:
+      - - {x: -206.5, y: -200}
+        - {x: 241.5, y: -101}
+        - {x: 445.5, y: -52}
+        - {x: 467.5, y: -31}
+        - {x: 475.5, y: -23}
+        - {x: 475.5, y: 23}
+        - {x: 465.5, y: 46}
+        - {x: 440.5, y: 61}
+        - {x: -239.5, y: 210}
+        - {x: -307.5, y: 210}
+        - {x: -328.5, y: 203}
+        - {x: -370.5, y: 188}
+        - {x: -417.5, y: 155}
+        - {x: -462.5, y: 99}
+        - {x: -476.5, y: 38}
+        - {x: -476.5, y: -31}
+        - {x: -472.5, y: -61}
+        - {x: -444.5, y: -116}
+        - {x: -415.5, y: -149}
+        - {x: -386.5, y: -184}
+        - {x: -316.5, y: -208}
+        - {x: -255.5, y: -208}
+      physicsShape:
+      - - {x: 9.5, y: -147}
+        - {x: 240.5, y: -98}
+        - {x: 446.5, y: -52}
+        - {x: 471.5, y: -24}
+        - {x: 473.5, y: -20}
+        - {x: 473.5, y: 16}
+        - {x: 459.5, y: 53}
+        - {x: 196.5, y: 113}
+        - {x: -242.5, y: 208}
+        - {x: -312.5, y: 208}
+        - {x: -324.5, y: 207}
+        - {x: -382.5, y: 180}
+        - {x: -418.5, y: 154}
+        - {x: -467.5, y: 80}
+        - {x: -474.5, y: 45}
+        - {x: -474.5, y: -33}
+        - {x: -466.5, y: -59}
+        - {x: -456.5, y: -92}
+        - {x: -420.5, y: -147}
+        - {x: -360.5, y: -188}
+        - {x: -327.5, y: -203}
+        - {x: -299.5, y: -206}
+        - {x: -240.5, y: -206}
+      tessellationDetail: 0.035
       bones: []
-      spriteID: c6d3f613eedcd29d0800000000000000
-      internalID: -2797353370611925652
+      spriteID: 38f4eca2275ba87c0800000000000000
+      internalID: -4068239811426758781
       vertices: []
       indices: 
       edges: []
@@ -125,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3212723913eac4d49a86d2bc0e2fcf7f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +207,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kyopi_0: -2797353370611925652
+      flipper_0: -247996242125104783
+      flipper_1: 3521510943198494494
+      flipper_10: 989883109
+      flipper_2: -3044256783311549685
+      flipper_3: 2660265437255219225
+      flipper_4: 6800316158577393132
+      flipper_5: 1691743226366108493
+      flipper_6: 5162851662616317946
+      flipper_7: -4068239811426758781
+      flipper_8: -6591521795942108514
+      flipper_9: 4535388941504096656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
