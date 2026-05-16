@@ -4,6 +4,7 @@ public sealed class CreepController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float moveDistance = 3f;
+    [SerializeField] private float ballPushForce = 12f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shootCooldown = 2f;
@@ -54,7 +55,18 @@ public sealed class CreepController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (ballRb != null)
+            {
+                Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
+                ballRb.linearVelocity = Vector2.zero;
+                ballRb.AddForce(pushDirection * ballPushForce, ForceMode2D.Impulse);
+            }
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Wall"))
+        {
+            _moveDirection *= -1;
         }
     }
 }

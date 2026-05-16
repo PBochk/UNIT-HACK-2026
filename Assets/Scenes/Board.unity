@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 169927978}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 354344805}
   m_Layer: 0
   m_Name: Square (4)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 996949424}
   m_Layer: 0
   m_Name: Square (6)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 1180486630}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 1333830688}
   m_Layer: 0
   m_Name: RIghtTriangle_0
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 1702383112}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 1918064787}
   m_Layer: 0
   m_Name: Square (5)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 2009488254}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Obstacle
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1730,6 +1730,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5373965231754684505, guid: ee00ad96ac8b117459ee18b10c37f7d4, type: 3}
   m_PrefabInstance: {fileID: 3536501184499498064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4339089864363002363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060221449752930054, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650309089335013055, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
+      propertyPath: m_Name
+      value: SpaceInvader 1_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c526352e44fc7f849b7bc4f724c55a09, type: 3}
 --- !u!1001 &7398605300835835148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1797,3 +1854,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 764385823}
   - {fileID: 216206072}
+  - {fileID: 4339089864363002363}
