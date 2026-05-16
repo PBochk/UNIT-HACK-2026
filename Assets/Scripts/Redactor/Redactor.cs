@@ -12,7 +12,7 @@ public class Redactor : MonoBehaviour
     private Dictionary<ObstaclePlace, ObstacleNodeUI> _placesToUI = new();
     private ObstaclePlace _currentPlace;
     
-    private void Awake()
+    private void Start()
     {
         foreach (var place in places)
         {

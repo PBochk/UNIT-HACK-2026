@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class GameManager : MonoBehaviour
@@ -7,7 +8,11 @@ public sealed class GameManager : MonoBehaviour
     
     
     [SerializeField] private BoardManager[] boards;
+    [SerializeField] private PlacementManager placementManager;
 
+    public BoardManager CurrentBoard  { get; private set; }
+
+    public PlacementManager PlacementManager { get;private set; }
     public event Action<GameStage> OnStageChanged;
 
     public int Round { get; private set; } = 1;
@@ -15,7 +20,7 @@ public sealed class GameManager : MonoBehaviour
     public int CurrentBoardIndex { get; private set; } = 0;
     public GameStage Stage { get; private set; } = GameStage.Battle;
 
-    private BoardManager _activeBoardInstance;
+    private readonly List<int> _roundsToChangeBoard = new () {3, 6, 9};
 
     private void Awake()
     {
@@ -30,11 +35,18 @@ public sealed class GameManager : MonoBehaviour
         }
 
         CreateBoard();
+        (PlacementManager = Instantiate(placementManager))
+            .OnCompleted += OnPlacementCompleted;
     }
 
     private void Start()
     {
         SetStage(GameStage.Battle);
+    }
+    
+    private void OnPlacementCompleted()
+    {
+        StartNextBattle();
     }
 
     private void OnBattleCompleted()
@@ -42,23 +54,25 @@ public sealed class GameManager : MonoBehaviour
         SetStage(GameStage.Placement);
     }
 
-    public void StartNextBattle()
+    private void StartNextBattle()
     {
-        Round++;
+       
+        if (_roundsToChangeBoard.Contains(++Round))
+            ChangeBoard();
         SetStage(GameStage.Battle);
     }
 
-    public void ChangeBoard()
+    private void ChangeBoard()
     {
         if (CurrentBoardIndex + 1 >= boards.Length)
         {
             return;
         }
 
-        if (_activeBoardInstance != null)
+        if (CurrentBoard != null)
         {
-            _activeBoardInstance.OnBattleCompleted -= OnBattleCompleted;
-            Destroy(_activeBoardInstance.gameObject);
+            CurrentBoard.OnBattleCompleted -= OnBattleCompleted;
+            Destroy(CurrentBoard.gameObject);
         }
 
         CurrentBoardIndex++;
@@ -69,8 +83,8 @@ public sealed class GameManager : MonoBehaviour
     {
         if (boards.Length == 0 || boards[CurrentBoardIndex] == null) return;
 
-        _activeBoardInstance = Instantiate(boards[CurrentBoardIndex]);
-        _activeBoardInstance.OnBattleCompleted += OnBattleCompleted;
+        CurrentBoard = Instantiate(boards[CurrentBoardIndex]);
+        CurrentBoard.OnBattleCompleted += OnBattleCompleted;
     }
 
     private void SetStage(GameStage newStage)
