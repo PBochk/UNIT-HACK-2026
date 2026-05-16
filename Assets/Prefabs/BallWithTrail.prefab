@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8018999202357990935}
+    - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 894805526476329416}
   m_SourcePrefab: {fileID: 100100000, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
 --- !u!1 &2077113750847191477 stripped
 GameObject:
@@ -112,9 +115,9 @@ TrailRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Time: 2
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -124,21 +127,30 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.39814728
-        inSlope: -1.2577429
-        outSlope: -1.2577429
+        value: 0.018516243
+        inSlope: 0.31087777
+        outSlope: 0.31087777
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.19140625
+        outWeight: 0.6549856
+      - serializedVersion: 3
+        time: 0.37551492
+        value: 0.14854574
+        inSlope: -0.34988698
+        outSlope: -0.34988698
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.49028325
+        outWeight: 0.28162763
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.049382716
+        outSlope: -0.049382716
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.30024737
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -184,3 +196,17 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &894805526476329416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077113750847191477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfcb807c84f4f8787a8d41c92dd03d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailBySpeed2D
+  trailRenderer: {fileID: 8018999202357990935}
+  speedThreshold: 17
