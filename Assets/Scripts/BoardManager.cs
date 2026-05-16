@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BallsList))]
 public sealed class BoardManager : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
@@ -9,6 +10,7 @@ public sealed class BoardManager : MonoBehaviour
     [SerializeField] private float ballSpawnCooldown = 3f;
 
     private PlungerController _plunger;
+    private BallsList _ballsList;
     private int _ballsLeftToSpawn;
     private int _activeBallsCount;
     private float _cooldownTimer;
@@ -18,6 +20,8 @@ public sealed class BoardManager : MonoBehaviour
 
     private void Awake()
     {
+        _ballsList = GetComponent<BallsList>();
+        
         int childCount = transform.childCount;
         List<GameObject> obstaclesList = new (childCount);
 
@@ -82,7 +86,7 @@ public sealed class BoardManager : MonoBehaviour
         if (_ballsLeftToSpawn <= 0 || ballPrefab == null || _plunger == null) return;
 
         Vector3 spawnPosition = _plunger.transform.position + Vector3.up * ballSpawnOffsetY;
-        Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(_ballsList.GetRandomBallPrefab(), spawnPosition, Quaternion.identity);
         
         _ballsLeftToSpawn--;
         _activeBallsCount++;

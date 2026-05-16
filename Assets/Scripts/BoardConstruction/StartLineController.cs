@@ -5,7 +5,7 @@ using UnityEngine;
 public sealed class StartLineController : MonoBehaviour
 {
     private BoardManager _boardManager;
-    private readonly HashSet<int> _crossedBallIds = new HashSet<int>();
+    private readonly HashSet<int> _crossedBallIds = new();
 
     private void Start()
     {
