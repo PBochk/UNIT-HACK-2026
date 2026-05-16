@@ -1415,6 +1415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7207627913165071293, guid: 05c44b6706f2d2049a6baa0e1a20becb, type: 3}
+      propertyPath: flipActionName
+      value: Left
+      objectReference: {fileID: 0}
     - target: {fileID: 8177152074665926184, guid: 05c44b6706f2d2049a6baa0e1a20becb, type: 3}
       propertyPath: m_Name
       value: RightFlipper
