@@ -10,6 +10,7 @@ public sealed class BoardManager : MonoBehaviour
 
     private PlungerController _plunger;
     private int _ballsLeftToSpawn;
+    private int _activeBallsCount;
     private float _cooldownTimer;
     private bool _isCooldownActive;
 
@@ -18,7 +19,7 @@ public sealed class BoardManager : MonoBehaviour
     private void Awake()
     {
         int childCount = transform.childCount;
-        List<GameObject> obstaclesList = new(childCount);
+        List<GameObject> obstaclesList = new (childCount);
 
         for (var i = 0; i < childCount; i++)
         {
@@ -52,6 +53,7 @@ public sealed class BoardManager : MonoBehaviour
     public void StartGame()
     {
         _ballsLeftToSpawn = totalBalls;
+        _activeBallsCount = 0;
         _isCooldownActive = false;
         _cooldownTimer = 0f;
         
@@ -65,12 +67,24 @@ public sealed class BoardManager : MonoBehaviour
         _isCooldownActive = true;
     }
 
+    public void RegisterBallDestroyed()
+    {
+        _activeBallsCount--;
+
+        if (_ballsLeftToSpawn == 0 && _activeBallsCount <= 0)
+        {
+            Debug.Log("Game Over");
+        }
+    }
+
     private void SpawnNextBall()
     {
         if (_ballsLeftToSpawn <= 0 || ballPrefab == null || _plunger == null) return;
 
         Vector3 spawnPosition = _plunger.transform.position + Vector3.up * ballSpawnOffsetY;
         Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
+        
         _ballsLeftToSpawn--;
+        _activeBallsCount++;
     }
 }
