@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be59cdaae2d84255a96bdc312b904b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlacementPointContainer
-  placementPoints: []
   placementAsset: {fileID: 11400000, guid: 295d2a7e437d62758acc5316f94bfa47, type: 2}
   dragAndDrop: {fileID: 4618841958487535818}
   inventory: {fileID: 11400000, guid: 604394937a52cacbcac7931b57ac13f3, type: 2}
@@ -476,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8565884352678777790, guid: 24f231ff8b00d03e58c29dc1698beada, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8565884352678777790, guid: 24f231ff8b00d03e58c29dc1698beada, type: 3}
       propertyPath: m_LocalRotation.w
@@ -608,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1580557263980736574, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 55.29773
+      value: 56.29773
       objectReference: {fileID: 0}
     - target: {fileID: 2249103623634406731, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_SortingLayer
@@ -628,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203884298055915739, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 55.29773
+      value: 56.29773
       objectReference: {fileID: 0}
     - target: {fileID: 3398865591374797563, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_SortingLayer
@@ -656,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649802060317297845, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3649802060317297845, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_LocalRotation.w

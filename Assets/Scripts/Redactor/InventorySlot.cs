@@ -82,8 +82,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Здесь можно включать/создавать визуальную иконку, следующую за мышью
         if (!_dragAndDrop.IsDragging) return;
         var canvas = GetComponentInParent<Canvas>();
-        _previewInstance.transform.SetAsLastSibling();
         _previewInstance = Instantiate(PreviewPrefab, canvas.transform, false);
+        _previewInstance.transform.SetAsLastSibling();
         _previewInstance.Initialize(obstacleAsset.Sprite);
     }
 
@@ -121,7 +121,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Здесь уничтожаем/прячем визуальную иконку перетаскивания
         if (_previewInstance != null)
         {
-            Destroy(_previewInstance.gameObject);
+            //Destroy(_previewInstance.gameObject);
         }
     }
 }

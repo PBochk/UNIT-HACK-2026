@@ -7,8 +7,9 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     public int Id { get; private set; }
 
     [SerializeField] private Image _image;
-    private Sprite imageSpriteCache;
+    [SerializeField] private DragPreview PreviewPrefab;
     
+    private Sprite imageSpriteCache;
     private ObstacleAsset _currentObstacle;
     private ObstaclePlacement _placementAsset;
     private RedactorDragAndDropManager _dragAndDrop;
@@ -16,6 +17,7 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     private DragPreview _dragPreview;
     
     private GameObject _obstacleCache;
+    private DragPreview _previewInstance;
 
     public void Start()
     {
@@ -44,6 +46,11 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
         // Очищаем саму точку и данные в ScriptableObject
         _currentObstacle = null;
         _placementAsset.Obstacles[Id] = null;
+        
+        var canvas = GetComponentInParent<Canvas>();
+        _previewInstance = Instantiate(PreviewPrefab, canvas.transform, false);
+        _previewInstance.transform.SetAsLastSibling();
+        _previewInstance.Initialize(_currentObstacle.Sprite);
 
         UpdateVisuals();
     }
@@ -51,6 +58,23 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     public void OnDrag(PointerEventData eventData)
     {
         // Обязательно оставляем пустым, чтобы работал OnEndDrag
+        if (_previewInstance != null)
+        {
+            // Получаем RectTransform превью
+            RectTransform previewRect = _previewInstance.GetComponent<RectTransform>();
+            // Получаем RectTransform родителя (Канваса)
+            RectTransform parentRect = _previewInstance.transform.parent as RectTransform;
+        
+            // Получаем Canvas, чтобы узнать, какая камера за него отвечает
+            Canvas canvas = _previewInstance.GetComponentInParent<Canvas>();
+            Camera cam = (canvas.renderMode == RenderMode.ScreenSpaceOverlay) ? null : canvas.worldCamera;
+
+            // Магическая функция Unity, которая правильно рассчитывает позицию
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, eventData.position, cam, out Vector2 localPoint))
+            {
+                previewRect.anchoredPosition = localPoint;
+            }
+        }
     }
 
     // --- ЗАВЕРШЕНИЕ ПЕРЕТАСКИВАНИЯ, НАЧАТОГО С ТОЧКИ ---
@@ -61,6 +85,11 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
         {
             _dragAndDrop.ReturnToInventory();
             Debug.Log("Предмет снят с карты и возвращен в инвентарь.");
+        }
+        
+        if (_previewInstance != null)
+        {
+            Destroy(_previewInstance.gameObject);
         }
     }
 
@@ -87,6 +116,11 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
 
     private void UpdateVisuals()
     {
+        if(_obstacleCache != null)
+        {
+            Destroy(_obstacleCache);
+        }
+        
         // Включение/выключение графики препятствия на этой точке
         if (_currentObstacle != null)
         {
@@ -98,10 +132,6 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
             return;
         }
         
-        if(_obstacleCache != null)
-        {
-            Destroy(_obstacleCache);
-        }
         _image.sprite = imageSpriteCache;
         _image.color = new (1, 1, 1, 1);
         _image.enabled = true;
