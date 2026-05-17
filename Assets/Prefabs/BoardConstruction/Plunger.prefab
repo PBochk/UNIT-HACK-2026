@@ -222,8 +222,8 @@ MonoBehaviour:
   releaseSpeed: 20
   visualTransform: {fileID: 8960124997821518528}
   minSquishScaleY: 0.5
-  launchZoneOffset: {x: 0, y: 2}
-  launchZoneRadius: 0.4
+  detectionBoxSize: {x: 0.45, y: 2}
+  detectionOffset: {x: 0, y: 1}
   ballLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlungerSound
   audioSource: {fileID: 3200453979985418566}
-  audioClip: {fileID: 8300000, guid: bba7d9df5d6691b409b1a261e976ba58, type: 3}
+  audioClip: {fileID: 8300000, guid: 65bf66277a179e44d81debeb4a8c291b, type: 3}
   plunger: {fileID: 7209602492723372602}
 --- !u!82 &3200453979985418566
 AudioSource:
