@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public sealed class GameManager : MonoBehaviour
 {
@@ -35,8 +37,10 @@ public sealed class GameManager : MonoBehaviour
         }
 
         CreateBoard();
-        (PlacementManager = Instantiate(placementManager))
-            .OnCompleted += OnPlacementCompleted;
+        
+        (PlacementManager = placementManager).Redactor.GetComponentInChildren<Button>().onClick.AddListener(OnPlacementCompleted);
+        CurrentBoard.OnBattleCompleted += OnBattleCompleted;
+        
     }
 
     private void Start()
@@ -52,6 +56,24 @@ public sealed class GameManager : MonoBehaviour
     private void OnBattleCompleted()
     {
         SetStage(GameStage.Placement);
+        InputManager.Instance.DisableAllActions();
+        SpaceInvaderController[] invaders = FindObjectsByType<SpaceInvaderController>(FindObjectsSortMode.None);
+        foreach (var invader in invaders)
+        {
+            invader.SetPaused(true);
+        }
+        
+        PowerUpSpawner[] spawners = FindObjectsByType<PowerUpSpawner>(FindObjectsSortMode.None);
+        foreach (var spawner in spawners)
+        {
+            spawner.SetPaused(true);
+        }
+        
+        GhostController[] ghosts = FindObjectsByType<GhostController>(FindObjectsSortMode.None);
+        foreach (var ghost in ghosts)
+        {
+            ghost.SetPaused(true);
+        }
     }
 
     private void StartNextBattle()
@@ -60,6 +82,24 @@ public sealed class GameManager : MonoBehaviour
         if (_roundsToChangeBoard.Contains(++Round))
             ChangeBoard();
         SetStage(GameStage.Battle);
+        InputManager.Instance.EnableAllActions();
+        SpaceInvaderController[] invaders = FindObjectsByType<SpaceInvaderController>(FindObjectsSortMode.None);
+        foreach (var invader in invaders)
+        {
+            invader.SetPaused(false);
+        }
+        
+        PowerUpSpawner[] spawners = FindObjectsByType<PowerUpSpawner>(FindObjectsSortMode.None);
+        foreach (var spawner in spawners)
+        {
+            spawner.SetPaused(false);
+        }
+        
+        GhostController[] ghosts = FindObjectsByType<GhostController>(FindObjectsSortMode.None);
+        foreach (var ghost in ghosts)
+        {
+            ghost.SetPaused(false);
+        }
     }
 
     private void ChangeBoard()

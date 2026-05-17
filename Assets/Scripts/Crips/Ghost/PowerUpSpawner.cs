@@ -8,6 +8,9 @@ public sealed class PowerUpSpawner : MonoBehaviour
     private Transform[] _spawnPoints;
     private GameObject[] _activePowerUps;
     private float _timer;
+    
+    // Флаг паузы
+    private bool _isPaused;
 
     private void Start()
     {
@@ -23,10 +26,20 @@ public sealed class PowerUpSpawner : MonoBehaviour
         _timer = spawnCooldown;
     }
 
+    // --- ПУБЛИЧНЫЕ МЕТОДЫ ДЛЯ ПАУЗЫ ---
+    public void SetPaused(bool isPaused)
+    {
+        _isPaused = isPaused;
+    }
+
     private void Update()
     {
+        // Если на паузе — таймер не тикает, спавн не происходит
+        if (_isPaused) return;
+
         _timer -= Time.deltaTime;
         if (!(_timer <= 0f)) return;
+        
         TrySpawn();
         _timer = spawnCooldown;
     }

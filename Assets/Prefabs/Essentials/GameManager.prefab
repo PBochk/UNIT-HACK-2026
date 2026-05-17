@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   boards: []
+  placementManager: {fileID: 4880718974718518832, guid: fef2d752e7f2c784db1dca3c395f788a, type: 3}

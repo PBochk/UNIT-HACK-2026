@@ -112,6 +112,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   wallOffset: 0.1
+  bonusScores: 50
+  currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
 --- !u!61 &4845575336329911328
 BoxCollider2D:
   m_ObjectHideFlags: 0
