@@ -119,7 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62cb1aa4eeb23640b12c7029c9d193a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardManager
-  ballPrefab: {fileID: 0}
+  ballPrefab: {fileID: 2077113750847191477, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
   ballSpawnOffsetY: 1.8
   totalBalls: 3
   ballSpawnCooldown: 3
+  SpawnPoints: []

@@ -21,8 +21,8 @@ public sealed class BoardManager : MonoBehaviour
     private bool _isCooldownActive;
 
     public IReadOnlyList<GameObject> Obstacles { get; private set; }
-    
-    public List<GameObject> SpawnPoints = new();
+
+    public List<GameObject> SpawnPoints { get; } = new();
 
     private void Awake()
     {
