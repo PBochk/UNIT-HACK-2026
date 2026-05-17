@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Wall
   - Flipper
+  - Point
   layers:
   - Default
   - TransparentFX
