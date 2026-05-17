@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [Header("Assets")]
     [SerializeField] private ObstacleAsset obstacleAsset;
     [SerializeField] private Stat UnlockedStat;
+    [SerializeField] private DragPreview PreviewPrefab;
 
     [Header("GO links")]
     [SerializeField] private Image Icon;
@@ -17,11 +18,13 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     private bool _disabled = false;
     private Inventory _inventory;
-    private RedactorDragAndDropManager dragAndDrop;
+    private RedactorDragAndDropManager _dragAndDrop;
+    private DragPreview _previewInstance;
 
     public void Initialize(Inventory inventory, RedactorDragAndDropManager dragAndDrop)
     {
         _inventory = inventory;
+        _dragAndDrop  = dragAndDrop;
         if (_disabled) return;
         if (!inventory.AmountHeld.ContainsKey(obstacleAsset))
         {
@@ -75,26 +78,38 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        dragAndDrop.TakeFromInventory(obstacleAsset);
+        _dragAndDrop.TakeFromInventory(obstacleAsset);
         // Здесь можно включать/создавать визуальную иконку, следующую за мышью
+        if (!_dragAndDrop.IsDragging) return;
+        var canvas = GetComponentInParent<Canvas>();
+        _previewInstance = Instantiate(PreviewPrefab, canvas.transform, false);
+        _previewInstance.Initialize(obstacleAsset.Sprite);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         // Метод пустой, но ОБЯЗАТЕЛЬНЫЙ для работы OnEndDrag.
         // Здесь обычно обновляют позицию иконки: icon.transform.position = eventData.position;
+        if (_previewInstance != null)
+        {
+            _previewInstance.transform.position = eventData.position;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         // КЛЮЧЕВАЯ ЛОГИКА: Если мы закончили тащить, а менеджер все еще IsDragging,
         // значит OnDrop на точках размещения НЕ сработал (бросили в пустоту или обратно в UI инвентаря)
-        if (dragAndDrop.IsDragging)
+        if (_dragAndDrop.IsDragging)
         {
-            dragAndDrop.ReturnToInventory();
+            _dragAndDrop.ReturnToInventory();
             Debug.Log("Сброшено в пустоту: предмет возвращен в инвентарь.");
         }
         
         // Здесь уничтожаем/прячем визуальную иконку перетаскивания
+        if (_previewInstance != null)
+        {
+            //Destroy(_previewInstance.gameObject);
+        }
     }
 }

@@ -8,7 +8,12 @@ public class SoundOutput : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log(SoundManager.Instance == null);
+        if (SoundManager.Instance == null)
+        {
+            Debug.LogWarning("Sound manager not found");
+            return;
+        }
+            
         SoundManager.Instance.OnGeneralVolumeChanged.AddListener(HandleVolumeChanged);
         SoundManager.Instance.OnSoundVolumeChanged.AddListener(HandleVolumeChanged);
     }

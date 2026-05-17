@@ -11,6 +11,11 @@ public class SoundOptions : MonoBehaviour
     private void Start()
     {
         var manager = SoundManager.Instance;
+        if (manager == null)
+        {
+            Debug.LogWarning("Sound Manager not found");
+            return;
+        }
         general.onValueChanged.AddListener(manager.SetGeneralVolume);
         sound.onValueChanged.AddListener(manager.SetSoundVolume);
         music.onValueChanged.AddListener(manager.SetMusicVolume);

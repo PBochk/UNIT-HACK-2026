@@ -1,14 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public int Id { get; private set; }
+
+    [SerializeField] private Image _image;
     
     private ObstacleAsset _currentObstacle;
     private ObstaclePlacement _placementAsset;
     private RedactorDragAndDropManager _dragAndDrop;
     private Inventory _inventory;
+    private DragPreview _dragPreview;
+    
+    private GameObject _obstacleCache;
 
     public void Setup(int id, ObstaclePlacement placement, RedactorDragAndDropManager dragAndDropManager, Inventory inventory)
     {
@@ -76,5 +82,18 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     private void UpdateVisuals()
     {
         // Включение/выключение графики препятствия на этой точке
+        if (_currentObstacle != null)
+        {
+            _image.enabled = false;
+            _obstacleCache = Instantiate(_currentObstacle.ObstaclePrefab, null);
+            _obstacleCache.transform.position = transform.position;
+            return;
+        }
+        
+        if(_obstacleCache != null)
+        {
+            Destroy(_obstacleCache);
+        }
+        _image.enabled = true;
     }
 }

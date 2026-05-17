@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   obstacleAsset: {fileID: 0}
-  dragAndDrop: {fileID: 0}
   UnlockedStat: {fileID: 0}
+  PreviewPrefab: {fileID: 9036993351159246911, guid: 68fc918a5745723279c3cd4f108101d2, type: 3}
   Icon: {fileID: 8685625389404883364}
   AmountText: {fileID: 7229763623517750826}
   AmountBadge: {fileID: 445537101386236935}
