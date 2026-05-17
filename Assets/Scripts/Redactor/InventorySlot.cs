@@ -1,0 +1,42 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+{
+    [SerializeField] private ObstacleAsset obstacleAsset;
+    [SerializeField] private RedactorDragAndDropManager dragAndDrop;
+    [SerializeField] private Stat UnlockedStat;
+
+    [SerializeField] private Image Icon;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragAndDrop.TakeFromInventory(obstacleAsset);
+        // Здесь можно включать/создавать визуальную иконку, следующую за мышью
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Метод пустой, но ОБЯЗАТЕЛЬНЫЙ для работы OnEndDrag.
+        // Здесь обычно обновляют позицию иконки: icon.transform.position = eventData.position;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // КЛЮЧЕВАЯ ЛОГИКА: Если мы закончили тащить, а менеджер все еще IsDragging,
+        // значит OnDrop на точках размещения НЕ сработал (бросили в пустоту или обратно в UI инвентаря)
+        if (dragAndDrop.IsDragging)
+        {
+            dragAndDrop.ReturnToInventory();
+            Debug.Log("Сброшено в пустоту: предмет возвращен в инвентарь.");
+        }
+        
+        // Здесь уничтожаем/прячем визуальную иконку перетаскивания
+    }
+
+    public void UpdateCounter()
+    {
+        
+    }
+}
