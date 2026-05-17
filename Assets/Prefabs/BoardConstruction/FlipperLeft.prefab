@@ -346,7 +346,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.6, y: 0}
-  m_ConnectedAnchor: {x: -2.3647683, y: -2.0271847}
+  m_ConnectedAnchor: {x: -2.5530362, y: -4.0411024}
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554bca650140b5343a945ba817b940b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlipperController
-  flipActionName: FlipperLeft
+  flipActionName: LeftFlipper
   hitStrength: 1500
   isReverted: 1
   defaultMode: 0

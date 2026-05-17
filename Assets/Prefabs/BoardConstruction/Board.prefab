@@ -1364,12 +1364,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 3649802060317297845}
     m_Modifications:
     - target: {fileID: 2353185751540701209, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -2.5530362
+      propertyPath: m_UseLimits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2353185751540701209, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -4.0411024
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6094382003480863276, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
       propertyPath: m_Name
@@ -1574,8 +1574,8 @@ PrefabInstance:
       value: 0.52319014
       objectReference: {fileID: 0}
     - target: {fileID: 6728792447056687578, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -4.0411024
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8701521721805331534, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
       propertyPath: m_LocalPosition.x

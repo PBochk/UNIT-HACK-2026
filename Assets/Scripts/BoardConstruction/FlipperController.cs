@@ -46,6 +46,9 @@ public sealed class FlipperController : MonoBehaviour
         _reversionMultiplier = isReverted ? -1 : 1;
         
         _flipAction = InputManager.Instance.GetAction(flipActionName);
+        
+        _motor.motorSpeed = -hitStrength * _reversionMultiplier;
+        _hinge.motor = _motor;
 
         SetMode(defaultMode);
     }
