@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7611849649012443928}
   - component: {fileID: 4575437006826758973}
   - component: {fileID: 3498276022802205632}
-  - component: {fileID: 6332066387683379486}
   - component: {fileID: -8643964968157679921}
   - component: {fileID: 4735326875645092446}
   - component: {fileID: -3205064959263738186}
@@ -124,42 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &6332066387683379486
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2510199652163822143}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 0f5f53f67ff71b946878aaf9d4dfd94b, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!114 &-8643964968157679921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b59ece77f9448496db34f19880dda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallController
+  powerUpSprite: {fileID: 6776526030360264896, guid: 8d8ebbf031655b54ebc4fca156223d05, type: 3}
 --- !u!114 &4735326875645092446
 MonoBehaviour:
   m_ObjectHideFlags: 0

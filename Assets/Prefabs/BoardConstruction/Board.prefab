@@ -1298,6 +1298,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3649802060317297845}
     m_Modifications:
+    - target: {fileID: 2353185751540701209, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353185751540701209, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6094382003480863276, guid: 5af8689b15f195749b34bea30bae4e60, type: 3}
       propertyPath: m_Name
       value: FlipperLeft

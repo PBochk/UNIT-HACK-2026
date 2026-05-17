@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public sealed class PlungerController : MonoBehaviour
 {
+    public UnityEvent OnLaunch;
+    
     [Header("Main Settings")]
     [SerializeField] private string launchActionName = "Plunger";
     [SerializeField] private float maxForce = 15f;
@@ -26,12 +28,9 @@ public sealed class PlungerController : MonoBehaviour
     private bool _wasPressedLastFrame;
     private InputAction _launchAction;
     private float _chargeRatio; 
-
-    private Collider2D _visualCollider;
-    private float _ballRadius = -1f;
-
-    public UnityEvent OnLaunch;
     
+    private Collider2D _visualCollider;
+
     private void Start()
     {
         _plungerRigidbody = GetComponent<Rigidbody2D>();
@@ -67,12 +66,14 @@ public sealed class PlungerController : MonoBehaviour
         if (_isCharging)
         {
             _chargeRatio = Mathf.MoveTowards(_chargeRatio, 1f, pullSpeed * Time.fixedDeltaTime);
-            SnapBallToVisualTop();
         }
         else
         {
             _chargeRatio = Mathf.MoveTowards(_chargeRatio, 0f, releaseSpeed * Time.fixedDeltaTime);
         }
+
+        // Удерживаем мяч на пружине
+        SnapBallToVisualTop();
 
         UpdateVisualSquish();
     }
@@ -81,28 +82,25 @@ public sealed class PlungerController : MonoBehaviour
     {
         if (visualTransform == null || _visualCollider == null) return;
 
-        // ИЗМЕНЕНИЕ 1: Сканируем компактную зону, которая привязана строго к ТЕКУЩЕЙ верхушке пружины
-        Vector2 scanPosition = new Vector2(_originalPosition.x, _visualCollider.bounds.max.y + launchZoneRadius);
-        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius, ballLayer);
+        Vector2 scanPosition = _originalPosition + launchZoneOffset;
+        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 1f, ballLayer);
 
         if (hitCollider != null && hitCollider.CompareTag("Ball"))
         {
-            // ИЗМЕНЕНИЕ 2: Защита от соседних линий. Если мяч смещен по X дальше своего радиуса — игнорируем
-            if (Mathf.Abs(hitCollider.transform.position.x - _originalPosition.x) > launchZoneRadius) return;
-
             Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
             if (ballRb != null)
             {
-                if (_ballRadius < 0f)
-                {
-                    _ballRadius = hitCollider.bounds.extents.y;
-                }
+                // ИСПРАВЛЕНИЕ 1: Если мяч уже имеет вертикальную скорость вверх (выстрелил), 
+                // мы его НЕ трогаем и даем ему улететь.
+                if (ballRb.linearVelocity.y > 0.1f) return;
 
+                float currentBallRadius = hitCollider.bounds.extents.y;
                 float plungerTopY = _visualCollider.bounds.max.y;
-                float targetBallY = plungerTopY + _ballRadius;
+                float targetBallY = plungerTopY + currentBallRadius;
 
-                ballRb.linearVelocity = new Vector2(ballRb.linearVelocity.x, 0f);
-                ballRb.MovePosition(new Vector2(ballRb.position.x, targetBallY));
+                // ИСПРАВЛЕНИЕ 2: Обнуляем боковую скорость и выравниваем мяч СТРОГО по центру коридора плунжера (_originalPosition.x)
+                ballRb.linearVelocity = Vector2.zero;
+                ballRb.MovePosition(new Vector2(_originalPosition.x, targetBallY));
             }
         }
     }
@@ -120,25 +118,23 @@ public sealed class PlungerController : MonoBehaviour
         
         if (_visualCollider != null)
         {
-            // ИЗМЕНЕНИЕ 3: Здесь тоже сузили зону поиска до точных размеров разгонного трека плунжера
             Vector2 scanPosition = new Vector2(_originalPosition.x, _visualCollider.bounds.max.y + launchZoneRadius);
-            Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius, ballLayer);
+            Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 0.5f, ballLayer);
 
             if (hitCollider != null && hitCollider.CompareTag("Ball"))
             {
-                // Дублируем проверку по оси X для предотвращения ложного запуска соседнего мяча
-                if (Mathf.Abs(hitCollider.transform.position.x - _originalPosition.x) > launchZoneRadius) return;
-
                 Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
                 if (ballRb != null)
                 {
                     ballRb.linearVelocity = Vector2.zero;
+                    
+                    // Задаем импульс. В следующем кадре SnapBallToVisualTop увидит скорость и пропустит этот мяч
                     ballRb.AddForce(Vector2.up * appliedForce, ForceMode2D.Impulse);
-                    _ballRadius = -1f; 
+                    
+                    OnLaunch?.Invoke();
                 }
             }
         }
-        OnLaunch.Invoke();
     }
 
     private void UpdateVisualSquish()
@@ -153,7 +149,7 @@ public sealed class PlungerController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Vector2 center = (Application.isPlaying && _visualCollider != null) 
-            ? new Vector2(_originalPosition.x, _visualCollider.bounds.max.y + launchZoneRadius) 
+            ? new Vector2(_originalPosition.x, _visualCollider.bounds.max.y) 
             : (Vector2)transform.position + launchZoneOffset;
             
         Gizmos.DrawWireSphere(center, launchZoneRadius);
