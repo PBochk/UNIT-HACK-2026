@@ -19,7 +19,7 @@ public class GameChanger : MonoBehaviour
         GameManager.OnStageChanged += stage =>
         {
             if (stage == GameStage.Placement && !_busyAnimating)
-                ChangeScreen(ScreenKind.Place);
+                ChangeScreen(ScreenKind.Tree);
         };
 
         PlacementScreenManager.OnPlay += () =>
@@ -38,13 +38,13 @@ public class GameChanger : MonoBehaviour
         UpgradeScreenManager.OnPlay += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(ScreenKind.Tree); 
+                ChangeScreen(ScreenKind.Game); 
         };
         
         UpgradeScreenManager.OnGoToPlace += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(ScreenKind.Tree); // Did you mean Screen.Place here?
+                ChangeScreen(ScreenKind.Place); // Did you mean Screen.Place here?
         };
     }
 
@@ -79,7 +79,7 @@ public class GameChanger : MonoBehaviour
                     UpgradeScreen.enabled = true;
                     break;
                 case ScreenKind.Game:
-                    // Handle transition to core gameplay screen if necessary
+                    GameManager.StartNextBattle();
                     break;
             }
         });

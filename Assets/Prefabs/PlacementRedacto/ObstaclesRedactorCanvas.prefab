@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6401954872472479613}
   - component: {fileID: 2188458909200966895}
   - component: {fileID: 7652788879744212612}
+  - component: {fileID: 8025037045887517767}
   m_Layer: 5
   m_Name: ObstaclesRedactorCanvas
   m_TagString: Untagged
@@ -32,6 +33,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 681227334716694204}
+  - {fileID: 6774377528496190145}
   - {fileID: 1866393635511008063}
   - {fileID: 7137362431686788374}
   - {fileID: 3776214971436581557}
@@ -106,6 +108,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8025037045887517767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028670377934586071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e19b1fc3a7d4e798b7d11f9ede518ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlacementScreenManager
+  PlayButton: {fileID: 4180483014042644628}
+  GoToTreeButton: {fileID: 0}
 --- !u!1 &6942530312079689108
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,18 +147,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6942530312079689108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.017699113, y: 0.017699113, z: 0.017699113}
+  m_LocalPosition: {x: 0, y: 0, z: 5085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7982587612599897608}
   - {fileID: 3186463737793131380}
   - {fileID: 7465700241947302787}
-  m_Father: {fileID: 1866393635511008063}
+  m_Father: {fileID: 6010774827038082618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.66, y: -3.47}
+  m_AnchoredPosition: {x: 2.709995, y: 3.9450085}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3760731598657682468
@@ -186,7 +202,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7643477296060885626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -381,6 +397,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2a99f2f1438329e89f3f03cd0aa5a7, type: 3}
+--- !u!114 &4180483014042644628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4141404406414479569, guid: bd2a99f2f1438329e89f3f03cd0aa5a7, type: 3}
+  m_PrefabInstance: {fileID: 251417057755816005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &4209194755946723423 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4113798768613546010, guid: bd2a99f2f1438329e89f3f03cd0aa5a7, type: 3}
@@ -792,9 +819,17 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -39299821
       objectReference: {fileID: 0}
+    - target: {fileID: 957716919636965259, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347654630962582579, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1580557263980736574, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 369.46347
+      value: 368.96347
       objectReference: {fileID: 0}
     - target: {fileID: 1580557263980736574, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -812,13 +847,9 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -39299821
       objectReference: {fileID: 0}
-    - target: {fileID: 1580557263980736574, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 244.46347
-      objectReference: {fileID: 0}
-    - target: {fileID: 1580557263980736574, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 49.29773
+    - target: {fileID: 1806342945149659853, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2249103623634406731, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_SortingLayer
@@ -842,19 +873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203884298055915739, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 543.27026
+      value: 542.77026
       objectReference: {fileID: 0}
     - target: {fileID: 3203884298055915739, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 90.29773
-      objectReference: {fileID: 0}
-    - target: {fileID: 3203884298055915739, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 418.27023
-      objectReference: {fileID: 0}
-    - target: {fileID: 3203884298055915739, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 49.29773
       objectReference: {fileID: 0}
     - target: {fileID: 3398865591374797563, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_SortingLayer
@@ -976,7 +999,15 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -39299821
       objectReference: {fileID: 0}
+    - target: {fileID: 5697455370744770476, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6390873491350514805, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049520625683433995, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -996,6 +1027,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -39299821
       objectReference: {fileID: 0}
+    - target: {fileID: 7657131816962957268, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7659029195454855596, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1012,7 +1047,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
+    - target: {fileID: 8418522165791622731, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8421189623775816959, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441343604768005815, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1030,10 +1073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3649802060317297845, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 6774377528496190145}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8418522165791622731, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
       insertIndex: -1

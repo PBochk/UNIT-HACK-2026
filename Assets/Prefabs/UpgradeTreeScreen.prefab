@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 2642999974528507439}
   - component: {fileID: 4945720017134893148}
   - component: {fileID: 2389442468947882344}
+  - component: {fileID: 7995958466070520084}
   m_Layer: 5
   m_Name: UpgradeTreeScreen
   m_TagString: Untagged
@@ -362,6 +363,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &7995958466070520084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253912502854221134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9127f1eb57434633a6d681442dcaaf6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeScreenManager
+  PlayButton: {fileID: 5222589646475721320}
+  GoToPlace: {fileID: 0}
 --- !u!1001 &3011637846582939744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8264449962117556772}
     m_Modifications:
+    - target: {fileID: 292576140247022755, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -392,6 +411,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511151630700596575, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1600910789721598497, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
@@ -494,6 +517,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3009248095800641012, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108423874286743004, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674076090635105675, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4483387526150404106, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -513,6 +548,22 @@ PrefabInstance:
     - target: {fileID: 5430475794435251738, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_Name
       value: Example Tree UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583141923342841348, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736149722405756460, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099257398869569107, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086249670844426107, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -545,6 +596,10 @@ PrefabInstance:
     - target: {fileID: 8199708123009148769, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259789261393221255, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997713754265281166, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_SortingLayer
@@ -1056,3 +1111,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4113798768613546010, guid: bd2a99f2f1438329e89f3f03cd0aa5a7, type: 3}
   m_PrefabInstance: {fileID: 8143463333425834681}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5222589646475721320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4141404406414479569, guid: bd2a99f2f1438329e89f3f03cd0aa5a7, type: 3}
+  m_PrefabInstance: {fileID: 8143463333425834681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
