@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - CRT_WARP_ON
+  - DISTORT_ON
   - SCROLL_STATIC_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -44,7 +45,7 @@ Material:
     m_Ints: []
     m_Floats:
     - CRT_WARP: 1
-    - DISTORT: 0
+    - DISTORT: 1
     - RGB_STRIPES: 0
     - SCROLL_STATIC: 1
     - STATIC: 0

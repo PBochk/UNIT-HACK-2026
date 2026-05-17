@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: b59481d7c1039974aae103a44a45bdc0
+guid: 75fcc5b3ddab12f4e931835a90e2dd98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5034083456255750154
-    second: Slder Light_0
+      213: 6346320560734428301
+    second: "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u0439
+      2 \u0448\u0430\u0440\u0438\u043A 1_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +47,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 21, y: 11, z: 20, w: 12}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +101,24 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slder Light_0
+      name: "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u0439
+        2 \u0448\u0430\u0440\u0438\u043A 1_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 750
-        height: 30
+        x: 7
+        y: 19
+        width: 181
+        height: 279
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a007bc35b38acd540800000000000000
-      internalID: 5034083456255750154
+      spriteID: d8c555dfce8a21850800000000000000
+      internalID: 6346320560734428301
       vertices: []
       indices: 
       edges: []
@@ -125,8 +127,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Slder Light_0: 5034083456255750154
+      "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u0439 2 \u0448\u0430\u0440\u0438\u043A 1_0": 6346320560734428301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
