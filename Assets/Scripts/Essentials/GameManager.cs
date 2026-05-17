@@ -45,10 +45,10 @@ public sealed class GameManager : MonoBehaviour
         
     }
 
-    private void Start()
-    {
-        SetStage(GameStage.Battle);
-    }
+    //private void Start()
+    //{
+        //SetStage(GameStage.Battle);
+    //}
     
     private void OnPlacementCompleted()
     {
@@ -79,7 +79,7 @@ public sealed class GameManager : MonoBehaviour
         
     }
 
-    private void StartNextBattle()
+    public void StartNextBattle()
     {
        
         if (_roundsToChangeBoard.Contains(++Round))
