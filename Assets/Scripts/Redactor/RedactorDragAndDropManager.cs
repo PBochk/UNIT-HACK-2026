@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RedactorDragAndDropManager : MonoBehaviour
@@ -6,6 +8,9 @@ public class RedactorDragAndDropManager : MonoBehaviour
     public ObstacleAsset Holding { get; private set; }
 
     [SerializeField] private Inventory inventory;
+
+    public event Action DragBegin; 
+    public event Action DragEnd; 
 
     // Взять из инвентаря (кол-во уменьшается)
     public void TakeFromInventory(ObstacleAsset obstacle)
@@ -16,6 +21,7 @@ public class RedactorDragAndDropManager : MonoBehaviour
         {
             Holding = obstacle;
             IsDragging = true;
+            DragBegin?.Invoke();
         }
     }
 
@@ -26,6 +32,7 @@ public class RedactorDragAndDropManager : MonoBehaviour
 
         Holding = obstacle;
         IsDragging = true;
+        DragBegin?.Invoke();
     }
     
     // Возврат в инвентарь (принудительное увеличение кол-ва)
@@ -41,5 +48,6 @@ public class RedactorDragAndDropManager : MonoBehaviour
     {
         Holding = null;
         IsDragging = false;
+        DragEnd?.Invoke();
     }
 }
