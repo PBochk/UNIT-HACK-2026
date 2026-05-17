@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222deaaaf69d57aeeb04c70e0b6eaabe, type: 3}
-  m_Name: BallCountUpgrade
+  m_Name: LightBallChanceUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  Stat: {fileID: 11400000, guid: 69c0039289dcce6e4a7358a948a42ee0, type: 2}
-  RequiredUpgrade: {fileID: 0}
+  Stat: {fileID: 11400000, guid: 5726ee58cebaf724b85820b52d64a9df, type: 2}
+  RequiredUpgrade: {fileID: 11400000, guid: 42235c1e2bf1a95aead233c09422055b, type: 2}
   Levels:
   - Price:
     - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
-      Amount: 30
-    DeltaUpgradeValue: 1
+      Amount: 10
+    DeltaUpgradeValue: 5
   - Price:
     - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
-      Amount: 40
-    DeltaUpgradeValue: 1
+      Amount: 5
+    DeltaUpgradeValue: 15
   - Price:
     - Currency: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
-      Amount: 50
-    DeltaUpgradeValue: 1
-  Sprite: {fileID: -3096974309168379645, guid: a1e6d801dffa6274088ef93934dfd7d2, type: 3}
+      Amount: 20
+    DeltaUpgradeValue: 5
+  Sprite: {fileID: 1629424227195616705, guid: 1fb27e15a6839124a9419502f115338a, type: 3}

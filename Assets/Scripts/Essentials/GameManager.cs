@@ -11,6 +11,7 @@ public sealed class GameManager : MonoBehaviour
     
     [SerializeField] private BoardManager[] boards;
     [SerializeField] private PlacementManager placementManager;
+    [SerializeField] private ObstaclePlacement placement;
 
     public BoardManager CurrentBoard  { get; private set; }
 
@@ -23,6 +24,8 @@ public sealed class GameManager : MonoBehaviour
     public GameStage Stage { get; private set; } = GameStage.Battle;
 
     private readonly List<int> _roundsToChangeBoard = new () {3, 6, 9};
+
+    private GameObject[] _spawnPoint;
 
     private void Awake()
     {
@@ -74,6 +77,7 @@ public sealed class GameManager : MonoBehaviour
         {
             ghost.SetPaused(true);
         }
+        
     }
 
     private void StartNextBattle()
@@ -82,6 +86,16 @@ public sealed class GameManager : MonoBehaviour
         if (_roundsToChangeBoard.Contains(++Round))
             ChangeBoard();
         SetStage(GameStage.Battle);
+
+        var i = 0;
+        foreach (var spawnPoint in _spawnPoint)
+        {
+            var asset = placement.Obstacles[0];
+            Instantiate(asset.ObstaclePrefab,  spawnPoint.transform.position, spawnPoint.transform.rotation);
+            i++;
+        }
+        
+
         InputManager.Instance.EnableAllActions();
         SpaceInvaderController[] invaders = FindObjectsByType<SpaceInvaderController>(FindObjectsSortMode.None);
         foreach (var invader in invaders)
@@ -129,6 +143,7 @@ public sealed class GameManager : MonoBehaviour
 
     private void SetStage(GameStage newStage)
     {
+        Debug.Log("newStage: " + newStage);
         Stage = newStage;
         OnStageChanged?.Invoke(Stage);
     }
