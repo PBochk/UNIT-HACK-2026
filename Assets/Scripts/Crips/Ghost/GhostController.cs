@@ -8,7 +8,7 @@ public sealed class GhostController : MonoBehaviour
     [SerializeField] private float shiftVerticalDistance = 1f;
     [SerializeField] private float shiftSpeed = 5f;
     [SerializeField] private LayerMask wallLayer; // Слой стен, пола и потолка
-    [SerializeField] private float wallOffset = 0.1f; // Зазор до стен
+    [SerializeField] private float wallOffset = 0.2f; // Зазор до стен
 
     private int _horizontalDirection = 1;
     private int _verticalShiftDirection = 1;
