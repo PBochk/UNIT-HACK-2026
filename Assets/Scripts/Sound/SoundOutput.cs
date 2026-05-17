@@ -8,6 +8,7 @@ public class SoundOutput : MonoBehaviour
     
     private void Start()
     {
+        Debug.Log(SoundManager.Instance == null);
         SoundManager.Instance.OnGeneralVolumeChanged.AddListener(HandleVolumeChanged);
         SoundManager.Instance.OnSoundVolumeChanged.AddListener(HandleVolumeChanged);
     }

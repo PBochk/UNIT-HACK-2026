@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Obstacle
   - Wall
+  - Flipper
   layers:
   - Default
   - TransparentFX

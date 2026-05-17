@@ -230,6 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554bca650140b5343a945ba817b940b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flipper
-  flipActionReference: {fileID: -5932305102624997650, guid: 94b34d2c12b68f14caeded30a69ebb97, type: 3}
+  flipActionName: 
   hitStrength: 1500
   isReverted: 0
+  defaultMode: 0
+  states: []
