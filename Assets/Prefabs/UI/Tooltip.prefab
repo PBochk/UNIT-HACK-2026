@@ -73,7 +73,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1198477067713850731, guid: 5e7cfeb9061213b85b2466143b830b79, type: 3}
+  m_Sprite: {fileID: -1198477067713850731, guid: 9860413e08f46da4fad4853c3e5e5d00, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -258,8 +258,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: VeryLongNameForUpgrage
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
-  m_sharedMaterial: {fileID: 404757526030707257, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+  m_sharedMaterial: {fileID: 5418279719593811639, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -395,8 +395,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 2/5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
-  m_sharedMaterial: {fileID: 404757526030707257, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+  m_sharedMaterial: {fileID: 5418279719593811639, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -669,8 +669,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This upgrade does this but also that but also this but also...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
-  m_sharedMaterial: {fileID: 404757526030707257, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+  m_sharedMaterial: {fileID: 5418279719593811639, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -806,8 +806,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5% --> 10%
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
-  m_sharedMaterial: {fileID: 404757526030707257, guid: 935916a5e592c202c82310bc348cd47c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+  m_sharedMaterial: {fileID: 5418279719593811639, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

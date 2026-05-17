@@ -282,6 +282,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CurrencyUI
       objectReference: {fileID: 0}
+    - target: {fileID: 9068989218632128386, guid: 796476210ad0b39a7b60bbc6505e0a5b, type: 3}
+      propertyPath: m_fontSize
+      value: 44.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068989218632128386, guid: 796476210ad0b39a7b60bbc6505e0a5b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+    - target: {fileID: 9068989218632128386, guid: 796476210ad0b39a7b60bbc6505e0a5b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5418279719593811639, guid: 67be70ed307f31f5f956ac348e708d4b, type: 2}
+    - target: {fileID: 9068989218632128386, guid: 796476210ad0b39a7b60bbc6505e0a5b, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
