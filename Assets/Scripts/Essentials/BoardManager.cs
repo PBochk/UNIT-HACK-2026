@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [RequireComponent(typeof(BallsList))]
@@ -20,6 +21,8 @@ public sealed class BoardManager : MonoBehaviour
     private bool _isCooldownActive;
 
     public IReadOnlyList<GameObject> Obstacles { get; private set; }
+    
+    public List<GameObject> SpawnPoints = new();
 
     private void Awake()
     {
@@ -35,6 +38,10 @@ public sealed class BoardManager : MonoBehaviour
             if (child.TryGetComponent(out PlungerController plungerComponent))
             {
                 _plunger = plungerComponent;
+            }
+            else if (child.gameObject.CompareTag("Point"))
+            {
+                SpawnPoints.Add(child.gameObject);
             }
             else
             {
