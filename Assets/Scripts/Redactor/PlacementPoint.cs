@@ -7,6 +7,7 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     public int Id { get; private set; }
 
     [SerializeField] private Image _image;
+    private Sprite imageSpriteCache;
     
     private ObstacleAsset _currentObstacle;
     private ObstaclePlacement _placementAsset;
@@ -16,6 +17,11 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
     
     private GameObject _obstacleCache;
 
+    public void Start()
+    {
+        imageSpriteCache = _image.sprite;
+    }
+    
     public void Setup(int id, ObstaclePlacement placement, RedactorDragAndDropManager dragAndDropManager, Inventory inventory)
     {
         Id = id;
@@ -84,7 +90,9 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
         // Включение/выключение графики препятствия на этой точке
         if (_currentObstacle != null)
         {
-            _image.enabled = false;
+            //_image.enabled = false;
+            _image.sprite = null;
+            _image.color = new (1, 1, 1, 0);
             _obstacleCache = Instantiate(_currentObstacle.ObstaclePrefab, null);
             _obstacleCache.transform.position = transform.position;
             return;
@@ -94,6 +102,8 @@ public class PlacementPoint : MonoBehaviour, IDropHandler, IBeginDragHandler, ID
         {
             Destroy(_obstacleCache);
         }
+        _image.sprite = imageSpriteCache;
+        _image.color = new (1, 1, 1, 1);
         _image.enabled = true;
     }
 }

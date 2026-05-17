@@ -109,7 +109,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Здесь уничтожаем/прячем визуальную иконку перетаскивания
         if (_previewInstance != null)
         {
-            //Destroy(_previewInstance.gameObject);
+            Destroy(_previewInstance.gameObject);
         }
     }
 }

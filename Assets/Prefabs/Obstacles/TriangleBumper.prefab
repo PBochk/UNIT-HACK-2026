@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9028753385967235206}
   - component: {fileID: 8954522008132083657}
   - component: {fileID: 415595744117350596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriangleBumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,4 +305,3 @@ MonoBehaviour:
   scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
   scores: 20
   cooldownDuration: 0.5
-  cooldownColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
