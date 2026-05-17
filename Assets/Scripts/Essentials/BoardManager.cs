@@ -6,7 +6,7 @@ using UnityEngine;
 public sealed class BoardManager : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
-    [SerializeField] private float ballSpawnOffsetY = 1.5f;
+    [SerializeField] private float ballSpawnOffsetY = 1.8f;
     [SerializeField] private int totalBalls = 3;
     [SerializeField] private float ballSpawnCooldown = 3f;
     

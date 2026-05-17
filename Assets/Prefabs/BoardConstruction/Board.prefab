@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardManager
   ballPrefab: {fileID: 2077113750847191477, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
-  ballSpawnOffsetY: 1.5
+  ballSpawnOffsetY: 1.8
   totalBalls: 100
   ballSpawnCooldown: 1
 --- !u!114 &1347654630962582579
@@ -1636,18 +1636,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3649802060317297845}
     m_Modifications:
-    - target: {fileID: 6728792447056687578, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.52319014
-      objectReference: {fileID: 0}
-    - target: {fileID: 6728792447056687578, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -4.0411024
-      objectReference: {fileID: 0}
-    - target: {fileID: 6728792447056687578, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
-      propertyPath: m_AngleLimits.m_UpperAngle
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8701521721805331534, guid: 93374e8e71767fe438e5903039cd34e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7368098

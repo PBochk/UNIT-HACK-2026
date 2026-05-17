@@ -26,16 +26,26 @@ public sealed class PlungerController : MonoBehaviour
     private InputAction _launchAction;
     private float _chargeRatio; 
 
+    // Ссылка на коллайдер, который находится на дочернем объекте Visuals
+    private Collider2D _visualCollider;
+    private float _ballRadius = -1f; 
+
     private void Start()
     {
         _plungerRigidbody = GetComponent<Rigidbody2D>();
         _originalPosition = _plungerRigidbody.position;
         _launchAction = InputManager.Instance.GetAction(launchActionName);
+
+        // Автоматически находим коллайдер на визуальном объекте пружины
+        if (visualTransform != null)
+        {
+            _visualCollider = visualTransform.GetComponent<Collider2D>();
+        }
     }
 
     private void FixedUpdate()
     {
-        // Родитель всегда неподвижен
+        // Удерживаем корень на месте
         _plungerRigidbody.MovePosition(_originalPosition);
 
         if (_launchAction == null) return;
@@ -58,7 +68,7 @@ public sealed class PlungerController : MonoBehaviour
         {
             _chargeRatio = Mathf.MoveTowards(_chargeRatio, 1f, pullSpeed * Time.fixedDeltaTime);
             
-            // ИСПРАВЛЕНИЕ: Принудительно удерживаем шар на сжимающейся поверхности
+            // Прижимаем шар к реальной макушке коллайдера
             SnapBallToVisualTop();
         }
         else
@@ -71,26 +81,30 @@ public sealed class PlungerController : MonoBehaviour
 
     private void SnapBallToVisualTop()
     {
-        if (visualTransform == null) return;
+        if (visualTransform == null || _visualCollider == null) return;
 
-        // Ищем шар в зоне плунжера
+        // Сканируем область над текущим положением плунжера
         Vector2 scanPosition = _originalPosition + launchZoneOffset;
-        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius, ballLayer);
+        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 1f, ballLayer);
 
         if (hitCollider != null && hitCollider.CompareTag("Ball"))
         {
             Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
             if (ballRb != null)
             {
-                // Находим текущую верхнюю точку сжимающегося визуала
-                // Для этого берем исходное смещение зоны и умножаем его Y на текущий масштаб сжатия
-                float currentScaleY = Mathf.Lerp(1f, minSquishScaleY, _chargeRatio);
-                
-                // Плавно опускаем скорость шара до нуля по Y, чтобы он не пробивал коллайдер
-                if (ballRb.linearVelocity.y < 0)
+                if (_ballRadius < 0f)
                 {
-                    ballRb.linearVelocity = new Vector2(ballRb.linearVelocity.x, 0f);
+                    _ballRadius = hitCollider.bounds.extents.y;
                 }
+
+                // ИСПРАВЛЕНИЕ: Вместо формул берем реальную верхнюю точку Bounds сжимающегося коллайдера
+                float plungerTopY = _visualCollider.bounds.max.y;
+                
+                // Идеальная позиция центра шара
+                float targetBallY = plungerTopY + _ballRadius;
+
+                ballRb.linearVelocity = new Vector2(ballRb.linearVelocity.x, 0f);
+                ballRb.MovePosition(new Vector2(ballRb.position.x, targetBallY));
             }
         }
     }
@@ -106,17 +120,21 @@ public sealed class PlungerController : MonoBehaviour
 
         if (finalCharge <= 0.05f) return;
         
-        // Сканируем зону с учетом текущего сжатия
-        Vector2 scanPosition = _originalPosition + launchZoneOffset * Mathf.Lerp(1f, minSquishScaleY, finalCharge);
-        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius, ballLayer);
-
-        if (hitCollider != null && hitCollider.CompareTag("Ball"))
+        // Для запуска берем зону сканирования над текущей реальной верхушкой коллайдера
+        if (_visualCollider != null)
         {
-            Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
-            if (ballRb != null)
+            Vector2 scanPosition = new Vector2(_originalPosition.x, _visualCollider.bounds.max.y + launchZoneRadius);
+            Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 0.5f, ballLayer);
+
+            if (hitCollider != null && hitCollider.CompareTag("Ball"))
             {
-                ballRb.linearVelocity = Vector2.zero;
-                ballRb.AddForce(Vector2.up * appliedForce, ForceMode2D.Impulse);
+                Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
+                if (ballRb != null)
+                {
+                    ballRb.linearVelocity = Vector2.zero;
+                    ballRb.AddForce(Vector2.up * appliedForce, ForceMode2D.Impulse);
+                    _ballRadius = -1f; 
+                }
             }
         }
     }
@@ -132,9 +150,10 @@ public sealed class PlungerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        // Отображаем зону сканирования в зависимости от текущего сжатия в игре
-        float currentScaleY = Application.isPlaying ? Mathf.Lerp(1f, minSquishScaleY, _chargeRatio) : 1f;
-        Vector2 center = (Application.isPlaying ? _originalPosition : (Vector2)transform.position) + launchZoneOffset * currentScaleY;
+        Vector2 center = (Application.isPlaying && _visualCollider != null) 
+            ? new Vector2(_originalPosition.x, _visualCollider.bounds.max.y) 
+            : (Vector2)transform.position + launchZoneOffset;
+            
         Gizmos.DrawWireSphere(center, launchZoneRadius);
     }
 }

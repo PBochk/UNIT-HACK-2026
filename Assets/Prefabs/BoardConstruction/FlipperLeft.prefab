@@ -315,7 +315,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000000
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -350,12 +350,12 @@ HingeJoint2D:
   m_UseConnectedAnchor: 1
   m_UseMotor: 1
   m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
+    m_MotorSpeed: 1000000
+    m_MaximumMotorForce: 1000000
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: 20
-    m_UpperAngle: 0
+    m_UpperAngle: -10
 --- !u!114 &4582093993798392441
 MonoBehaviour:
   m_ObjectHideFlags: 0
