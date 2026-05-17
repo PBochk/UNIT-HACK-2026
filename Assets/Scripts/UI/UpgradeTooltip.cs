@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-using UnityEngine.InputSystem; // ОБЯЗАТЕЛЬНО: подключаем новый Input System
+using UnityEngine.InputSystem;
+using UnityEngine.UI; // Добавлено для LayoutRebuilder
 
 public class UpgradeTooltip : MonoBehaviour
 {
@@ -19,13 +20,23 @@ public class UpgradeTooltip : MonoBehaviour
 
     [Header("Positioning Settings")]
     [SerializeField] private bool followMouse = true;
-    [SerializeField] private Vector3 offset = new Vector3(15f, -15f, 0f); 
+    // Офсет теперь работает в локальных координатах Canvas (например, 20, -20)
+    [SerializeField] private Vector2 offset = new Vector2(20f, -20f); 
 
     private RectTransform rectTransform;
+    private Canvas parentCanvas;
+    private RectTransform parentRectTransform;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        parentCanvas = GetComponentInParent<Canvas>();
+        
+        if (transform.parent != null)
+        {
+            parentRectTransform = transform.parent.GetComponent<RectTransform>();
+        }
+        
         Hide(); 
     }
 
@@ -104,6 +115,13 @@ public class UpgradeTooltip : MonoBehaviour
                 infoPriceText.text = "Максимальный уровень";
             }
         }
+
+        // КРИТИЧЕСКИЙ СТЁБ НАД UNITY UI:
+        // Принудительно заставляем Canvas пересчитать размерыLayout-групп ПОСЛЕ спавна иконок цен,
+        // иначе тултип посчитает позицию по старым (нулевым) размерам.
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+
         if (followMouse) UpdatePosition();
     }
 
@@ -123,8 +141,22 @@ public class UpgradeTooltip : MonoBehaviour
 
     private void UpdatePosition()
     {
-        if (Mouse.current == null) return;
+        if (Mouse.current == null || parentCanvas == null || parentRectTransform == null) return;
+
+        // 1. Получаем позицию мыши из нового Input System
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-        transform.position = (Vector3)mousePosition + offset;
+
+        // 2. Переводим экранные пиксели мыши в локальные координаты UI
+        Camera cam = parentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : parentCanvas.worldCamera;
+        
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRectTransform, 
+            mousePosition, 
+            cam, 
+            out Vector2 localPoint))
+        {
+            // 3. Устанавливаем корректную позицию через anchoredPosition
+            rectTransform.anchoredPosition = localPoint + offset;
+        }
     }
 }

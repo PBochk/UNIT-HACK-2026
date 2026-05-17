@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NIgthCity
-  m_Shader: {fileID: 4800000, guid: 58322d14ffef95b9ab201060c2211390, type: 3}
-  m_Parent: {fileID: 2100000, guid: 4436572aa3f13a95fa6e4074ba6add88, type: 2}
+  m_Name: UI_SynthCity
+  m_Shader: {fileID: 4800000, guid: cf107b6b9c70663a0ada0fd053fb298f, type: 3}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,10 +22,14 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.6037736, g: 0.21359916, b: 0.5513783, a: 1}
+    - _Color: {r: 0.33962262, g: 0.15218937, b: 0.33882156, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
