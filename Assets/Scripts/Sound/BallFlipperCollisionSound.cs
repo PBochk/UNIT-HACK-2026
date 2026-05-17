@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BallWallColisionSound : SoundOutput
+public class BallFlipperColisionSound : SoundOutput
 {
     public UnityEvent OnCollision;
 
@@ -12,9 +12,10 @@ public class BallWallColisionSound : SoundOutput
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall"))
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Flipper"))
         {
-            Debug.Log("Ball collision with wall");
+            Debug.Log("Ball collision with flipper");
             OnCollision.Invoke();            
         }
     }

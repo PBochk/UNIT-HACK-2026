@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 4582093993798392441}
   m_Layer: 0
   m_Name: FlipperLeft
-  m_TagString: Untagged
+  m_TagString: Flipper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

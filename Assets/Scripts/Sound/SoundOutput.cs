@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,6 +27,11 @@ public class SoundOutput : MonoBehaviour
     public void Bind(UnityEvent e)
     {
         e.AddListener(PlaySound);
+    }
+
+    public void Bind(Action a)
+    {
+        a += PlaySound;
     }
     
     private void PlaySound()
