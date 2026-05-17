@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4867066625563238941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4609558443435866597}
+  - component: {fileID: 2345419217462737501}
+  - component: {fileID: 3824835989562623485}
+  m_Layer: 7
+  m_Name: FirstBpard
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4609558443435866597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867066625563238941}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.06, y: -5.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2955437277170064836}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2345419217462737501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867066625563238941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c69b6ff90cf4aa49fa51e7680ac1ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallsList
+  regularBallPrefab: {fileID: 3895350978245932357, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
+  unusualBalls:
+  - prefab: {fileID: 3895350978245932357, guid: d43f64af8fdeb334fb8c3d41ec50f079, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: 5726ee58cebaf724b85820b52d64a9df, type: 2}
+  - prefab: {fileID: 3895350978245932357, guid: d56c0b75d41188744a643a9f0404c4f3, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: d973cba5154cc9946be8305dd1eecb5f, type: 2}
+  - prefab: {fileID: 3895350978245932357, guid: 923606b55972e714d814be27d386f987, type: 3}
+    dropChanceStat: {fileID: 11400000, guid: e1265fae20929ce4aa80caccd569d1a9, type: 2}
+--- !u!114 &3824835989562623485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867066625563238941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62cb1aa4eeb23640b12c7029c9d193a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoardManager
+  ballPrefab: {fileID: 2077113750847191477, guid: 1c88e7ee61ca953d2889da593801a951, type: 3}
+  ballSpawnOffsetY: 1.8
+  totalBalls: 3
+  ballSpawnCooldown: 3
+--- !u!1001 &4343611855430775551
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4609558443435866597}
+    m_Modifications:
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.28804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360563155054421934, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+      propertyPath: m_Name
+      value: Board1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4194401524705931523, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+    - {fileID: 8354361997647395915, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+--- !u!4 &2955437277170064836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1532430533907918651, guid: 448197b4802149348add28f2709cfe8f, type: 3}
+  m_PrefabInstance: {fileID: 4343611855430775551}
+  m_PrefabAsset: {fileID: 0}

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallWallColisionSound
   audioSource: {fileID: 7723278763709218212}
-  audioClip: {fileID: 8300000, guid: 0d5eaf3f60b354f4a9f02a2513444db6, type: 3}
+  audioClip: {fileID: 8300000, guid: 4be85fd4772a7ca4695fad29840b8866, type: 3}
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallFlipperColisionSound
   audioSource: {fileID: 7723278763709218212}
-  audioClip: {fileID: 8300000, guid: 0d5eaf3f60b354f4a9f02a2513444db6, type: 3}
+  audioClip: {fileID: 8300000, guid: 7a67c23d8dbd69a49a30c2086f93811c, type: 3}
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
