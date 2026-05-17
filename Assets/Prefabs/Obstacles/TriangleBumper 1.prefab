@@ -13,12 +13,10 @@ GameObject:
   - component: {fileID: 565113859254274372}
   - component: {fileID: 2495728945657558468}
   - component: {fileID: 9028753385967235206}
-  - component: {fileID: 8954522008132083657}
   - component: {fileID: 415595744117350596}
-  - component: {fileID: 8294828199310310838}
-  - component: {fileID: 1636285433612332962}
-  m_Layer: 2
-  m_Name: TriangleBumper
+  - component: {fileID: 872746292355044331}
+  m_Layer: 0
+  m_Name: TriangleBumper 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8146309629952089272, guid: 855e9289d3739934a86d21a73d208cbe, type: 3}
+  m_Sprite: {fileID: -5594198706401578213, guid: 6431f3a963c0cb34eb17d16cc6c90530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,8 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BumperController
   bounceForce: 15
   bounceAngle: 90
-  simple: {fileID: -599800504605603585, guid: 4b4c38ebdb46bf949b2d35abb2465b59, type: 3}
-  bounce: {fileID: 6346320560734428301, guid: 75fcc5b3ddab12f4e931835a90e2dd98, type: 3}
+  simple: {fileID: -5594198706401578213, guid: 6431f3a963c0cb34eb17d16cc6c90530, type: 3}
+  bounce: {fileID: 2788999993104762003, guid: 872dba3368cb5ed4b8daefe48256aaab, type: 3}
   visualHoldTime: 0.1
 --- !u!114 &2495728945657558468
 MonoBehaviour:
@@ -229,8 +227,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!60 &8954522008132083657
-PolygonCollider2D:
+--- !u!114 &415595744117350596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655508838290082362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d3a24fdb7b4c4b8a4471394a1c53a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScorableTarget
+  scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+  scores: 30
+  cooldownDuration: 0.5
+--- !u!61 &872746292355044331
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -267,157 +280,11 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 2.44}
+    oldSize: {x: 0.56, y: 3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.22, y: -0.16}
-      - {x: -0.03, y: 0.29999998}
-      - {x: -0.51, y: 1.18}
-      - {x: -0.56, y: 1.22}
-      - {x: -0.7, y: 1.22}
-      - {x: -0.72999996, y: 1.18}
-      - {x: -0.72999996, y: 0.26999998}
-      - {x: -0.71, y: -0.32999998}
-      - {x: -0.69, y: -1.0699999}
-      - {x: -0.61, y: -1.17}
-      - {x: -0.55, y: -1.1899999}
-      - {x: 0.22999999, y: -1.22}
-      - {x: 0.7, y: -1.22}
-      - {x: 0.72999996, y: -1.1999999}
-      - {x: 0.72999996, y: -1.0699999}
-      - {x: 0.53, y: -0.71999997}
-  m_UseDelaunayMesh: 1
---- !u!114 &415595744117350596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655508838290082362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d3a24fdb7b4c4b8a4471394a1c53a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScorableTarget
-  scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
-  scores: 20
-  cooldownDuration: 0.5
---- !u!114 &8294828199310310838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655508838290082362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb9c320fa8c4a658585f5f861562f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OnCollisionSound
-  audioSource: {fileID: 1636285433612332962}
-  audioClip: {fileID: 8300000, guid: 534910a08c90a5e4ca96bd53775591dc, type: 3}
-  OnCollision:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!82 &1636285433612332962
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655508838290082362}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_Size: {x: 0.56, y: 3}
+  m_EdgeRadius: 0

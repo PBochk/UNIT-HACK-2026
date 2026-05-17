@@ -14,7 +14,6 @@ public class BallWallColisionSound : SoundOutput
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Ball collision with wall");
             OnCollision.Invoke();            
         }
     }

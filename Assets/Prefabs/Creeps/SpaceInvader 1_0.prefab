@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2060221449752930054}
   - component: {fileID: 3940763281771948972}
   - component: {fileID: -1424532436060465212}
-  - component: {fileID: 2521331837266038551}
+  - component: {fileID: 2140175592026785628}
   m_Layer: 0
   m_Name: SpaceInvader 1_0
   m_TagString: Untagged
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8862720486767041490, guid: f346656895c98644d9fd32d71038c3e7, type: 3}
+  m_Sprite: {fileID: -7878300390627185790, guid: 5fbebcbd9d74dfc4daec57c065f695da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,11 +138,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreepController
   moveSpeed: 2
-  moveDistance: 3
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallOffset: 0.1
+  ballPushForce: 12
   projectilePrefab: {fileID: 8609415788189240601, guid: 69d95cb0c777b8d489d38849950c540e, type: 3}
   shootPoint: {fileID: 796819442586776521}
   shootCooldown: 2
---- !u!61 &2521331837266038551
+--- !u!61 &2140175592026785628
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,11 +184,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.3, y: 2.4}
+    oldSize: {x: 1.22, y: 0.82}
     newSize: {x: 3.3, y: 2.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.3, y: 2.4}
+  m_Size: {x: 1.22, y: 0.82}
   m_EdgeRadius: 0
