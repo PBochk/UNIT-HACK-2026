@@ -57,7 +57,7 @@ public sealed class BoardManager : MonoBehaviour
         SpawnNextBall();
     }
 
-    public void StartGame()
+    private void StartGame()
     {
         _ballsLeftToSpawn = totalBalls;
         _activeBallsCount = 0;
@@ -87,7 +87,6 @@ public sealed class BoardManager : MonoBehaviour
     private void SpawnNextBall()
     {
         if (_ballsLeftToSpawn <= 0 || ballPrefab == null || _plunger == null) return;
-
         Vector3 spawnPosition = _plunger.transform.position + Vector3.up * ballSpawnOffsetY;
         Instantiate(_ballsList.GetRandomBallPrefab(), spawnPosition, Quaternion.identity);
         
