@@ -648,7 +648,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1472,17 +1472,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1938015935891042395, guid: 1533fb15dcc10024cb7eae0d464c1311, type: 3}
-      propertyPath: placementManager
-      value: 
-      objectReference: {fileID: 4880718974718518832, guid: fef2d752e7f2c784db1dca3c395f788a, type: 3}
-    - target: {fileID: 1938015935891042395, guid: 1533fb15dcc10024cb7eae0d464c1311, type: 3}
-      propertyPath: boards.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938015935891042395, guid: 1533fb15dcc10024cb7eae0d464c1311, type: 3}
       propertyPath: 'boards.Array.data[0]'
       value: 
-      objectReference: {fileID: 1806342945149659853, guid: ac3788844f0d160408ec7144d50ce703, type: 3}
+      objectReference: {fileID: 4194401524705931523, guid: 448197b4802149348add28f2709cfe8f, type: 3}
     - target: {fileID: 6125711596986040438, guid: 1533fb15dcc10024cb7eae0d464c1311, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

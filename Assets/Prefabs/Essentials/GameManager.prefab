@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b145cb2c6d5a49641b959194961a7647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  boards: []
+  boards:
+  - {fileID: 4194401524705931523, guid: 448197b4802149348add28f2709cfe8f, type: 3}
   placementManager: {fileID: 4880718974718518832, guid: fef2d752e7f2c784db1dca3c395f788a, type: 3}
+  placement: {fileID: 11400000, guid: 295d2a7e437d62758acc5316f94bfa47, type: 2}

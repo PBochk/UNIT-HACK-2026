@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -90,7 +89,8 @@ public sealed class GameManager : MonoBehaviour
         var i = 0;
         foreach (var spawnPoint in _spawnPoint)
         {
-            var asset = placement.Obstacles[0];
+            if (placement.Obstacles.Count > i) return;
+            var asset = placement.Obstacles[i];
             Instantiate(asset.ObstaclePrefab,  spawnPoint.transform.position, spawnPoint.transform.rotation);
             i++;
         }
