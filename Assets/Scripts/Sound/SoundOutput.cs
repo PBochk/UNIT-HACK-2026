@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,6 @@ public class SoundOutput : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log(SoundManager.Instance == null);
         SoundManager.Instance.OnGeneralVolumeChanged.AddListener(HandleVolumeChanged);
         SoundManager.Instance.OnSoundVolumeChanged.AddListener(HandleVolumeChanged);
     }
@@ -21,6 +21,11 @@ public class SoundOutput : MonoBehaviour
     public void Bind(UnityEvent e)
     {
         e.AddListener(PlaySound);
+    }
+
+    public void Bind(Action a)
+    {
+        a += PlaySound;
     }
     
     private void PlaySound()

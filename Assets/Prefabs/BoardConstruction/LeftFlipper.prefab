@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8075359719400295134}
   m_Layer: 0
   m_Name: LeftFlipper
-  m_TagString: Untagged
+  m_TagString: Flipper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,5 +249,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScorableTarget
   scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
-  cooldownDuration: 2
   scores: 10
+  cooldownDuration: 2

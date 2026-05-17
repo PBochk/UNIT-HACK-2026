@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6332066387683379486}
   - component: {fileID: -8643964968157679921}
   - component: {fileID: 4735326875645092446}
+  - component: {fileID: -3205064959263738186}
   - component: {fileID: 7723278763709218212}
   m_Layer: 0
   m_Name: Ball
@@ -183,6 +184,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e095941fc76f544ade8197757e0567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallWallColisionSound
+  audioSource: {fileID: 7723278763709218212}
+  audioClip: {fileID: 8300000, guid: 0d5eaf3f60b354f4a9f02a2513444db6, type: 3}
+  OnCollision:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-3205064959263738186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510199652163822143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cf40b2f328847448b6ae80f65bb7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallFlipperColisionSound
   audioSource: {fileID: 7723278763709218212}
   audioClip: {fileID: 8300000, guid: 0d5eaf3f60b354f4a9f02a2513444db6, type: 3}
   OnCollision:
