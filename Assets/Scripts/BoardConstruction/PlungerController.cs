@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public sealed class PlungerController : MonoBehaviour
 {
     public UnityEvent OnLaunch;
-    
+
     [Header("Main Settings")]
     [SerializeField] private string launchActionName = "Plunger";
     [SerializeField] private float maxForce = 15f;
@@ -17,24 +17,29 @@ public sealed class PlungerController : MonoBehaviour
     [SerializeField] private Transform visualTransform;
     [SerializeField] private float minSquishScaleY = 0.5f;
 
-    [Header("Ball Detection Zone")]
-    [SerializeField] private Vector2 launchZoneOffset = Vector2.up * 0.5f;
-    [SerializeField] private float launchZoneRadius = 0.4f;
+    [Header("Ball Detection")]
+    [SerializeField] private Vector2 detectionBoxSize = new(0.45f, 2f);
+    [SerializeField] private Vector2 detectionOffset = new(0f, 1f);
     [SerializeField] private LayerMask ballLayer;
 
     private Rigidbody2D _plungerRigidbody;
     private Vector2 _originalPosition;
+
     private bool _isCharging;
     private bool _wasPressedLastFrame;
+
+    private float _chargeRatio;
+
     private InputAction _launchAction;
-    private float _chargeRatio; 
-    
+
     private Collider2D _visualCollider;
 
     private void Start()
     {
         _plungerRigidbody = GetComponent<Rigidbody2D>();
+
         _originalPosition = _plungerRigidbody.position;
+
         _launchAction = InputManager.Instance.GetAction(launchActionName);
 
         if (visualTransform != null)
@@ -47,7 +52,8 @@ public sealed class PlungerController : MonoBehaviour
     {
         _plungerRigidbody.MovePosition(_originalPosition);
 
-        if (_launchAction == null) return;
+        if (_launchAction == null)
+            return;
 
         bool isPressed = _launchAction.IsPressed();
 
@@ -58,100 +64,142 @@ public sealed class PlungerController : MonoBehaviour
         else if (!isPressed && _wasPressedLastFrame)
         {
             if (_isCharging)
+            {
                 Launch();
+            }
         }
 
         _wasPressedLastFrame = isPressed;
 
         if (_isCharging)
         {
-            _chargeRatio = Mathf.MoveTowards(_chargeRatio, 1f, pullSpeed * Time.fixedDeltaTime);
+            _chargeRatio = Mathf.MoveTowards(
+                _chargeRatio,
+                1f,
+                pullSpeed * Time.fixedDeltaTime);
         }
         else
         {
-            _chargeRatio = Mathf.MoveTowards(_chargeRatio, 0f, releaseSpeed * Time.fixedDeltaTime);
+            _chargeRatio = Mathf.MoveTowards(
+                _chargeRatio,
+                0f,
+                releaseSpeed * Time.fixedDeltaTime);
         }
 
-        // Удерживаем мяч на пружине
-        SnapBallToVisualTop();
+        SnapBallToPlunger();
 
         UpdateVisualSquish();
     }
 
-    private void SnapBallToVisualTop()
+    private Collider2D FindBall()
     {
-        if (visualTransform == null || _visualCollider == null) return;
+        Vector2 center = _originalPosition + detectionOffset;
 
-        Vector2 scanPosition = _originalPosition + launchZoneOffset;
-        Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 1f, ballLayer);
+        return Physics2D.OverlapBox(
+            center,
+            detectionBoxSize,
+            0f,
+            ballLayer);
+    }
 
-        if (hitCollider != null && hitCollider.CompareTag("Ball"))
-        {
-            Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
-            if (ballRb != null)
-            {
-                // ИСПРАВЛЕНИЕ 1: Если мяч уже имеет вертикальную скорость вверх (выстрелил), 
-                // мы его НЕ трогаем и даем ему улететь.
-                if (ballRb.linearVelocity.y > 0.1f) return;
+    private void SnapBallToPlunger()
+    {
+        if (_visualCollider == null)
+            return;
 
-                float currentBallRadius = hitCollider.bounds.extents.y;
-                float plungerTopY = _visualCollider.bounds.max.y;
-                float targetBallY = plungerTopY + currentBallRadius;
+        Collider2D hitCollider = FindBall();
 
-                // ИСПРАВЛЕНИЕ 2: Обнуляем боковую скорость и выравниваем мяч СТРОГО по центру коридора плунжера (_originalPosition.x)
-                ballRb.linearVelocity = Vector2.zero;
-                ballRb.MovePosition(new Vector2(_originalPosition.x, targetBallY));
-            }
-        }
+        if (hitCollider == null || !hitCollider.CompareTag("Ball"))
+            return;
+
+        Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
+
+        if (ballRb == null)
+            return;
+
+        // Уже вылетел
+        if (ballRb.linearVelocity.y > 0.1f)
+            return;
+
+        // Не магнитим боковые шары
+        float xDistance = Mathf.Abs(
+            ballRb.position.x - _originalPosition.x);
+
+        if (xDistance > detectionBoxSize.x * 0.5f)
+            return;
+
+        float ballRadius = hitCollider.bounds.extents.y;
+
+        float targetY = _visualCollider.bounds.max.y + ballRadius;
+
+        ballRb.linearVelocity = Vector2.zero;
+
+        ballRb.MovePosition(new Vector2(
+            _originalPosition.x,
+            targetY));
     }
 
     private void Launch()
     {
         _isCharging = false;
-        
+
         float appliedForce = maxForce * _chargeRatio;
-        float finalCharge = _chargeRatio;
-        
+
         _chargeRatio = 0f;
 
-        if (finalCharge <= 0.05f) return;
-        
-        if (_visualCollider != null)
-        {
-            Vector2 scanPosition = new Vector2(_originalPosition.x, _visualCollider.bounds.max.y + launchZoneRadius);
-            Collider2D hitCollider = Physics2D.OverlapCircle(scanPosition, launchZoneRadius + 0.5f, ballLayer);
+        if (appliedForce <= 0.05f)
+            return;
 
-            if (hitCollider != null && hitCollider.CompareTag("Ball"))
-            {
-                Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
-                if (ballRb != null)
-                {
-                    ballRb.linearVelocity = Vector2.zero;
-                    
-                    // Задаем импульс. В следующем кадре SnapBallToVisualTop увидит скорость и пропустит этот мяч
-                    ballRb.AddForce(Vector2.up * appliedForce, ForceMode2D.Impulse);
-                    
-                    OnLaunch?.Invoke();
-                }
-            }
-        }
+        Collider2D hitCollider = FindBall();
+
+        if (hitCollider == null || !hitCollider.CompareTag("Ball"))
+            return;
+
+        Rigidbody2D ballRb = hitCollider.GetComponent<Rigidbody2D>();
+
+        if (ballRb == null)
+            return;
+
+        ballRb.linearVelocity = Vector2.zero;
+
+        ballRb.AddForce(
+            Vector2.up * appliedForce,
+            ForceMode2D.Impulse);
+
+        OnLaunch?.Invoke();
     }
 
     private void UpdateVisualSquish()
     {
-        if (visualTransform == null) return;
-        
-        float currentScaleY = Mathf.Lerp(1f, minSquishScaleY, _chargeRatio);
-        visualTransform.localScale = new Vector3(visualTransform.localScale.x, currentScaleY, visualTransform.localScale.z);
+        if (visualTransform == null)
+            return;
+
+        float scaleY = Mathf.Lerp(
+            1f,
+            minSquishScaleY,
+            _chargeRatio);
+
+        visualTransform.localScale = new Vector3(
+            visualTransform.localScale.x,
+            scaleY,
+            visualTransform.localScale.z);
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Vector2 center = (Application.isPlaying && _visualCollider != null) 
-            ? new Vector2(_originalPosition.x, _visualCollider.bounds.max.y) 
-            : (Vector2)transform.position + launchZoneOffset;
-            
-        Gizmos.DrawWireSphere(center, launchZoneRadius);
+
+        Vector2 center;
+
+        if (Application.isPlaying)
+        {
+            center = _originalPosition + detectionOffset;
+        }
+        else
+        {
+            center = (Vector2)transform.position + detectionOffset;
+        }
+
+        Gizmos.DrawWireCube(center, detectionBoxSize);
     }
 }
