@@ -80,7 +80,7 @@ public sealed class BoardManager : MonoBehaviour
 
         if (_ballsLeftToSpawn == 0 && _activeBallsCount <= 0)
         {
-            Debug.Log("Game Over");
+            OnBattleCompleted?.Invoke();
         }
     }
 
