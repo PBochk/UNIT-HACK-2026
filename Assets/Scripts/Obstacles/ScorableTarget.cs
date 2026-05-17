@@ -11,6 +11,7 @@ public sealed class ScorableTarget : MonoBehaviour
     [Header("Timer Settings")]
     [SerializeField] private float cooldownDuration = 0.5f;
 
+    public int Scores => scores;
     public event Action<Currency> OnScoreAwarded;
 
     private bool _canTrigger = true;
