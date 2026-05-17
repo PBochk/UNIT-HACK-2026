@@ -41,7 +41,7 @@ public sealed class GameManager : MonoBehaviour
 
         CreateBoard();
         
-        (PlacementManager = placementManager).Redactor.GetComponentInChildren<Button>().onClick.AddListener(OnPlacementCompleted);
+        //(PlacementManager = placementManager).Redactor.GetComponentInChildren<Button>().onClick.AddListener(OnPlacementCompleted);
         CurrentBoard.OnBattleCompleted += OnBattleCompleted;
         
     }
