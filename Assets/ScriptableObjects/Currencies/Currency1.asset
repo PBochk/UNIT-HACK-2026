@@ -15,4 +15,4 @@ MonoBehaviour:
   DefaultAmount: 100
   Id: Currency1
   DisplayName: 
-  Icon: {fileID: -3338749442709606003, guid: 5fd9e90cb53415be6adf6ff5673af2f5, type: 3}
+  Icon: {fileID: -3338749442709606003, guid: 378ab1a5aa9985f47916278d15617d55, type: 3}

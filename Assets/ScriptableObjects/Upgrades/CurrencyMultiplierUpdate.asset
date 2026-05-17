@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   Stat: {fileID: 11400000, guid: 8d64f990b17527b3caa44c688a042be8, type: 2}
   RequiredUpgrade: {fileID: 11400000, guid: 5f1fc9403254f7280b118651b3f607eb, type: 2}
-  Level: 0
-  UpgradeValues:
-  - 2
-  Sprite: {fileID: 0}
+  Levels: []
+  Sprite: {fileID: -3096974309168379645, guid: a1e6d801dffa6274088ef93934dfd7d2, type: 3}
