@@ -10,6 +10,10 @@ public sealed class GhostController : MonoBehaviour
     [SerializeField] private LayerMask wallLayer; // Слой стен, пола и потолка
     [SerializeField] private float wallOffset = 0.2f; // Зазор до стен
 
+    
+    [SerializeField] private int bonusScores = 50;
+    [SerializeField] private Currency currency;
+    
     private int _horizontalDirection = 1;
     private int _verticalShiftDirection = 1;
     private bool _isShiftingDown;
@@ -21,16 +25,24 @@ public sealed class GhostController : MonoBehaviour
     private float _upperBoundY;
     private float _lowerBoundY;
 
+    // Флаг паузы для фазы расстановки
+    private bool _isPaused;
+
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
         DetectBounds();
     }
 
+    // --- ПУБЛИЧНЫЙ МЕТОД ДЛЯ ПАУЗЫ ---
+    public void SetPaused(bool isPaused)
+    {
+        _isPaused = isPaused;
+    }
+
     private void DetectBounds()
     {
         Collider2D col = GetComponent<Collider2D>();
-        // Учитываем половину размеров призрака, чтобы он не уходил сквозь стены спрайтом
         float extentsX = col != null ? col.bounds.extents.x : 0.5f;
         float extentsY = col != null ? col.bounds.extents.y : 0.5f;
 
@@ -53,12 +65,14 @@ public sealed class GhostController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Если на паузе — не двигаемся
+        if (_isPaused) return;
+
         MoveSnake();
     }
 
     private void MoveSnake()
     {
-        // Так как расчет идет в FixedUpdate, используем fixedDeltaTime для идеальной физической синхронизации
         if (_isShiftingDown)
         {
             transform.position = Vector3.MoveTowards(transform.position, _targetPosition, shiftSpeed * Time.fixedDeltaTime);
@@ -68,14 +82,13 @@ public sealed class GhostController : MonoBehaviour
                 transform.position = _targetPosition;
                 _isShiftingDown = false;
 
-                // Проверяем смену направления движения по вертикали (достигли ли пола/потолка)
                 if (_verticalShiftDirection == 1 && transform.position.y <= _lowerBoundY)
                 {
-                    _verticalShiftDirection = -1; // Меняем направление смещения на "вверх"
+                    _verticalShiftDirection = -1;
                 }
                 else if (_verticalShiftDirection == -1 && transform.position.y >= _upperBoundY)
                 {
-                    _verticalShiftDirection = 1; // Меняем направление смещения на "вниз"
+                    _verticalShiftDirection = 1;
                 }
             }
             return;
@@ -83,14 +96,12 @@ public sealed class GhostController : MonoBehaviour
 
         transform.Translate(Vector3.right * _horizontalDirection * moveSpeed * Time.fixedDeltaTime);
 
-        // Проверяем достижение левой или правой динамической границы
         if ((_horizontalDirection == 1 && transform.position.x >= _rightBound) ||
             (_horizontalDirection == -1 && transform.position.x <= _leftBound))
         {
             Vector3 shiftDirection = _verticalShiftDirection == 1 ? Vector3.down : Vector3.up;
             _targetPosition = transform.position + shiftDirection * shiftVerticalDistance;
             
-            // Защита от выхода за пределы потолка/пола при расчете следующего шага
             _targetPosition.y = Mathf.Clamp(_targetPosition.y, _lowerBoundY, _upperBoundY);
 
             _isShiftingDown = true;
@@ -100,6 +111,9 @@ public sealed class GhostController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        // Игнорируем столкновения с мячом во время паузы фазы расстановки
+        if (_isPaused) return;
+
         if (!collider.CompareTag("Ball")) return;
 
         BallController ballState = collider.GetComponent<BallController>();
@@ -108,6 +122,7 @@ public sealed class GhostController : MonoBehaviour
         if (ballState != null && ballState.IsPoweredUp)
         {
             Destroy(gameObject);
+            currency.Amount += bonusScores;
         }
         else if (ballRb != null)
         {
@@ -124,7 +139,6 @@ public sealed class GhostController : MonoBehaviour
         float top = _upperBoundY;
         float bottom = _lowerBoundY;
 
-        // Если игра еще не запущена, симулируем касты прямо в редакторе Unity для визуализации
         if (!Application.isPlaying)
         {
             Collider2D col = GetComponent<Collider2D>();

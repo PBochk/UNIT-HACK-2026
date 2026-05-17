@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [RequireComponent(typeof(BallsList))]
@@ -21,6 +22,8 @@ public sealed class BoardManager : MonoBehaviour
 
     public IReadOnlyList<GameObject> Obstacles { get; private set; }
 
+    public List<GameObject> SpawnPoints { get; } = new();
+
     private void Awake()
     {
         _ballsList = GetComponent<BallsList>();
@@ -35,6 +38,10 @@ public sealed class BoardManager : MonoBehaviour
             if (child.TryGetComponent(out PlungerController plungerComponent))
             {
                 _plunger = plungerComponent;
+            }
+            else if (child.gameObject.CompareTag("Point"))
+            {
+                SpawnPoints.Add(child.gameObject);
             }
             else
             {

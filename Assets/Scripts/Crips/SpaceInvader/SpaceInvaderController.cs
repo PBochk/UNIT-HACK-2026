@@ -13,11 +13,17 @@ public sealed class SpaceInvaderController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shootCooldown = 2f;
+    
+    
+    [SerializeField] private int bonusScores = 35;
+    [SerializeField] private Currency currency;
 
     private float _shootTimer;
     private int _moveDirection = 1;
-
     private Collider2D _collider;
+    
+    // Флаг паузы
+    private bool _isPaused;
 
     private void Start()
     {
@@ -25,16 +31,24 @@ public sealed class SpaceInvaderController : MonoBehaviour
         _collider = GetComponent<Collider2D>();
     }
 
+    // --- ПУБЛИЧНЫЕ МЕТОДЫ ДЛЯ ПАУЗЫ ---
+    public void SetPaused(bool isPaused)
+    {
+        _isPaused = isPaused;
+    }
+
     private void FixedUpdate()
     {
+        // Если на паузе (фаза расстановки) — ничего не делаем
+        if (_isPaused) return;
+
         Move();
         HandleShooting();
     }
 
     private void Move()
     {
-        if (_collider == null)
-            return;
+        if (_collider == null) return;
 
         Bounds bounds = _collider.bounds;
 
@@ -50,7 +64,6 @@ public sealed class SpaceInvaderController : MonoBehaviour
             wallCheckDistance,
             wallLayer);
 
-        // Стена впереди — разворачиваемся
         if (hit.collider != null)
         {
             _moveDirection *= -1;
@@ -64,10 +77,9 @@ public sealed class SpaceInvaderController : MonoBehaviour
 
     private void HandleShooting()
     {
-        _shootTimer -= Time.deltaTime;
+        _shootTimer -= Time.deltaTime; // Теперь таймер тоже замирает на паузе
 
-        if (_shootTimer > 0f)
-            return;
+        if (_shootTimer > 0f) return;
 
         Shoot();
 
@@ -76,39 +88,31 @@ public sealed class SpaceInvaderController : MonoBehaviour
 
     private void Shoot()
     {
-        if (projectilePrefab == null || shootPoint == null)
-            return;
+        if (projectilePrefab == null || shootPoint == null) return;
 
-        Instantiate(
-            projectilePrefab,
-            shootPoint.position,
-            Quaternion.identity);
+        Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Игнорируем столкновения во время фазы расстановки
+        if (_isPaused) return;
+
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Rigidbody2D ballRb =
-                collision.gameObject.GetComponent<Rigidbody2D>();
+            Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
             if (ballRb != null)
             {
-                Vector2 pushDirection =
-                    (collision.transform.position - transform.position).normalized;
-
+                Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
                 ballRb.linearVelocity = Vector2.zero;
-
-                ballRb.AddForce(
-                    pushDirection * ballPushForce,
-                    ForceMode2D.Impulse);
+                ballRb.AddForce(pushDirection * ballPushForce, ForceMode2D.Impulse);
             }
-
+            currency.Amount +=  bonusScores;
             Destroy(gameObject);
         }
         else if (((1 << collision.gameObject.layer) & wallLayer) != 0)
         {
-            // Фолбэк если всё-таки коснулся стены
             _moveDirection *= -1;
         }
     }
@@ -116,9 +120,7 @@ public sealed class SpaceInvaderController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Collider2D col = GetComponent<Collider2D>();
-
-        if (col == null)
-            return;
+        if (col == null) return;
 
         Bounds bounds = col.bounds;
 
@@ -129,9 +131,6 @@ public sealed class SpaceInvaderController : MonoBehaviour
         Vector2 direction = Vector2.right * _moveDirection;
 
         Gizmos.color = Color.yellow;
-
-        Gizmos.DrawLine(
-            rayOrigin,
-            rayOrigin + direction * wallCheckDistance);
+        Gizmos.DrawLine(rayOrigin, rayOrigin + direction * wallCheckDistance);
     }
 }

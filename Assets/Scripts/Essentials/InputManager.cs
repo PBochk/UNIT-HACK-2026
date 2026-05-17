@@ -43,6 +43,22 @@ public class InputManager : MonoBehaviour
         else
             action.Disable();
     }
+    
+    public void DisableAllActions()
+    {
+        foreach (var action in actionMap.Values)
+        {
+            action.Disable();
+        }
+    }
+
+    public void EnableAllActions()
+    {
+        foreach (var action in actionMap.Values)
+        {
+            action.Enable();
+        }
+    }
 
     public InputAction GetAction(string actionName)
     {
