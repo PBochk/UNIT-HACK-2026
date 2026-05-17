@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 565113859254274372}
   - component: {fileID: 2495728945657558468}
   - component: {fileID: 9028753385967235206}
+  - component: {fileID: -2072436880792678332}
   m_Layer: 0
-  m_Name: Bumper
+  m_Name: CircleBumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.26763296, g: 0.18867925, b: 0.754717, a: 1}
+  m_Sprite: {fileID: -599800504605603585, guid: 4b4c38ebdb46bf949b2d35abb2465b59, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,6 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BumperController
   bounceForce: 15
   bounceAngle: 90
+  simple: {fileID: -599800504605603585, guid: 4b4c38ebdb46bf949b2d35abb2465b59, type: 3}
+  bounce: {fileID: -1320957075271512820, guid: 4ddb8a69ebc61ce49a430e51ba90b9db, type: 3}
+  visualHoldTime: 0.1
 --- !u!114 &2495728945657558468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +263,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2072436880792678332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655508838290082362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d3a24fdb7b4c4b8a4471394a1c53a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScorableTarget
+  scoreValue: {fileID: 11400000, guid: 2b3fe2e1bb0b999d7a89d7c5467d509b, type: 2}
+  scores: 10
+  cooldownDuration: 0.5
+  cooldownColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}

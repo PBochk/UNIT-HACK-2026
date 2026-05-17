@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 31a2a7ee311119b4ba80260e8b1ef483
+guid: 76900dbb743cb1e4cb93ba1b705aaefa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9169877530624898698
-    second: Slider_0
+      213: -7316760843846982324
+    second: "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u04391
+      \u0448\u0430\u0440\u0438\u043A_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,13 +47,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 24, y: 32, z: 25, w: 28}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +101,24 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slider_0
+      name: "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u04391
+        \u0448\u0430\u0440\u0438\u043A_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
+        x: 17
+        y: 10
+        width: 146
+        height: 286
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a86bbbea703f14f70800000000000000
-      internalID: 9169877530624898698
+      spriteID: c45630447c4a57a90800000000000000
+      internalID: -7316760843846982324
       vertices: []
       indices: 
       edges: []
@@ -125,8 +127,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Slider_0: 9169877530624898698
+      "\u0431\u0430\u043C\u043F\u0435\u0440 \u0442\u0440\u0435\u0443\u0433\u043E\u043B\u044C\u043D\u044B\u04391 \u0448\u0430\u0440\u0438\u043A_0": -7316760843846982324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

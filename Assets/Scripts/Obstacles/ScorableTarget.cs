@@ -4,15 +4,18 @@ using UnityEngine;
 
 public sealed class ScorableTarget : MonoBehaviour
 {
+    [Header("Score Settings")]
     [SerializeField] private Currency scoreValue;
-    [SerializeField] private float cooldownDuration = 2f;
     [SerializeField] private int scores;
+
+    [Header("Timer Settings")]
+    [SerializeField] private float cooldownDuration = 0.5f;
 
     public event Action<Currency> OnScoreAwarded;
 
     private bool _canTrigger = true;
-    private Color _activeColor;
-    
+    private Coroutine _cooldownRoutine;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball")) return;
@@ -26,16 +29,23 @@ public sealed class ScorableTarget : MonoBehaviour
     {
         _canTrigger = false;
         scoreValue.Amount += scores;
-        Debug.Log(scoreValue.Amount);
+        Debug.Log($"Очки начислены! Текущий баланс: {scoreValue.Amount}");
         OnScoreAwarded?.Invoke(scoreValue);
 
-        StartCoroutine(CooldownRoutine());
+        if (_cooldownRoutine != null)
+        {
+            StopCoroutine(_cooldownRoutine);
+        }
+        
+        _cooldownRoutine = StartCoroutine(CooldownRoutine());
     }
 
     private IEnumerator CooldownRoutine()
     {
+        // Просто ждем завершения времени кулдауна без изменения визуала
         yield return new WaitForSeconds(cooldownDuration);
         
         _canTrigger = true;
+        _cooldownRoutine = null;
     }
 }
