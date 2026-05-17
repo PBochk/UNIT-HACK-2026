@@ -10,13 +10,12 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Handjet
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: f70fc91a08aec597f9cc59a40b68ee7d, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 0
+  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
