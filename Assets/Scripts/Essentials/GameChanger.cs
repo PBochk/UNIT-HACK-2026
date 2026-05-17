@@ -19,36 +19,36 @@ public class GameChanger : MonoBehaviour
         GameManager.OnStageChanged += stage =>
         {
             if (stage == GameStage.Placement && !_busyAnimating)
-                ChangeScreen(Screen.Place);
+                ChangeScreen(ScreenKind.Place);
         };
 
         PlacementScreenManager.OnPlay += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(Screen.Game);
+                ChangeScreen(ScreenKind.Game);
         };
         
         PlacementScreenManager.OnGoToTree += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(Screen.Tree);
+                ChangeScreen(ScreenKind.Tree);
         };
         
         // NOTE: Double-check these two! They both route to Screen.Tree in your original code.
         UpgradeScreenManager.OnPlay += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(Screen.Tree); 
+                ChangeScreen(ScreenKind.Tree); 
         };
         
         UpgradeScreenManager.OnGoToPlace += () =>
         {
             if(!_busyAnimating)
-                ChangeScreen(Screen.Tree); // Did you mean Screen.Place here?
+                ChangeScreen(ScreenKind.Tree); // Did you mean Screen.Place here?
         };
     }
 
-    public void ChangeScreen(Screen screen)
+    public void ChangeScreen(ScreenKind screen)
     {
         if (_busyAnimating) return;
         _busyAnimating = true;
@@ -72,13 +72,13 @@ public class GameChanger : MonoBehaviour
 
             switch (screen)
             {
-                case Screen.Place:
+                case ScreenKind.Place:
                     PlacementScreen.enabled = true;
                     break;
-                case Screen.Tree:
+                case ScreenKind.Tree:
                     UpgradeScreen.enabled = true;
                     break;
-                case Screen.Game:
+                case ScreenKind.Game:
                     // Handle transition to core gameplay screen if necessary
                     break;
             }
