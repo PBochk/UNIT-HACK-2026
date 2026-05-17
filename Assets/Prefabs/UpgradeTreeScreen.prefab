@@ -293,6 +293,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8264449962117556772}
     m_Modifications:
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745644504223710041, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1600910789721598497, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -389,9 +413,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4483387526150404106, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483387526150404106, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483387526150404106, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483387526150404106, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5430475794435251738, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_Name
       value: Example Tree UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248892403172204463, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7708765401251578177, guid: 718a80c12a7b7d5448a3ca235e42fc0d, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
