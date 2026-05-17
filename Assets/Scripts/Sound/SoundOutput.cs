@@ -8,8 +8,6 @@ public class SoundOutput : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log("Start");
-        Debug.Log(SoundManager.Instance == null);
         SoundManager.Instance.OnGeneralVolumeChanged.AddListener(HandleVolumeChanged);
         SoundManager.Instance.OnSoundVolumeChanged.AddListener(HandleVolumeChanged);
     }
@@ -17,7 +15,6 @@ public class SoundOutput : MonoBehaviour
     private void HandleVolumeChanged()
     {
         audioSource.volume = SoundManager.Instance.GeneralVolume * SoundManager.Instance.SoundVolume;
-        Debug.Log(audioSource.volume);
     }
     
     public void Bind(UnityEvent e)

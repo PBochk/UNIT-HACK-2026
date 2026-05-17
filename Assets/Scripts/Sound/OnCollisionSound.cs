@@ -12,7 +12,6 @@ public class OnCollisionSound : SoundOutput
     private void OnCollisionEnter2D(Collision2D other)
     {
         OnCollision.Invoke();
-        Debug.Log("OnCollision Enter");
     }
     
 }
