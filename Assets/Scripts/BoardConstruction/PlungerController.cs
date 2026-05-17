@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -27,8 +28,10 @@ public sealed class PlungerController : MonoBehaviour
     private float _chargeRatio; 
 
     private Collider2D _visualCollider;
-    private float _ballRadius = -1f; 
+    private float _ballRadius = -1f;
 
+    public UnityEvent OnLaunch;
+    
     private void Start()
     {
         _plungerRigidbody = GetComponent<Rigidbody2D>();
@@ -135,6 +138,7 @@ public sealed class PlungerController : MonoBehaviour
                 }
             }
         }
+        OnLaunch.Invoke();
     }
 
     private void UpdateVisualSquish()
