@@ -82,17 +82,29 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Здесь можно включать/создавать визуальную иконку, следующую за мышью
         if (!_dragAndDrop.IsDragging) return;
         var canvas = GetComponentInParent<Canvas>();
+        _previewInstance.transform.SetAsLastSibling();
         _previewInstance = Instantiate(PreviewPrefab, canvas.transform, false);
         _previewInstance.Initialize(obstacleAsset.Sprite);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Метод пустой, но ОБЯЗАТЕЛЬНЫЙ для работы OnEndDrag.
-        // Здесь обычно обновляют позицию иконки: icon.transform.position = eventData.position;
         if (_previewInstance != null)
         {
-            _previewInstance.transform.position = eventData.position;
+            // Получаем RectTransform превью
+            RectTransform previewRect = _previewInstance.GetComponent<RectTransform>();
+            // Получаем RectTransform родителя (Канваса)
+            RectTransform parentRect = _previewInstance.transform.parent as RectTransform;
+        
+            // Получаем Canvas, чтобы узнать, какая камера за него отвечает
+            Canvas canvas = _previewInstance.GetComponentInParent<Canvas>();
+            Camera cam = (canvas.renderMode == RenderMode.ScreenSpaceOverlay) ? null : canvas.worldCamera;
+
+            // Магическая функция Unity, которая правильно рассчитывает позицию
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, eventData.position, cam, out Vector2 localPoint))
+            {
+                previewRect.anchoredPosition = localPoint;
+            }
         }
     }
 
