@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 120796fea760f49439aef3d81a213b88
+guid: 1fce95f1e7d9b844485d2d344c9c38a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -54954978657406576
-    second: Score Background_0
+      213: 7128012890683174499
+    second: "\u0448\u0430\u0440 \u0433\u0440\u0430\u0432\u0438\u0442\u0430\u0446\u0438\u044F
+      (2)_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +101,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Score Background_0
+      name: "\u0448\u0430\u0440 \u0433\u0440\u0430\u0432\u0438\u0442\u0430\u0446\u0438\u044F
+        (2)_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 787
-        height: 156
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0917c72fcb2cc3ff0800000000000000
-      internalID: -54954978657406576
+      spriteID: 36e639f45f9cbe260800000000000000
+      internalID: 7128012890683174499
       vertices: []
       indices: 
       edges: []
@@ -135,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Score Background_0: -54954978657406576
+      "\u0448\u0430\u0440 \u0433\u0440\u0430\u0432\u0438\u0442\u0430\u0446\u0438\u044F (2)_0": 7128012890683174499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

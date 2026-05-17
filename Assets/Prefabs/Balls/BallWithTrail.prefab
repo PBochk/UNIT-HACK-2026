@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8643964968157679921, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: powerUpSprite
+      value: 
+      objectReference: {fileID: 6776526030360264896, guid: 8d8ebbf031655b54ebc4fca156223d05, type: 3}
     - target: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Name
       value: BallWithTrail
@@ -20,6 +24,34 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 9430b34ec9063244e8486e08d5be3285, type: 2}
+    - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3536647641611965011, guid: 4bd7515b3c0a02e4882ec0616662868f, type: 3}
+    - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -70,6 +102,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 894805526476329416}
+    - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811474403091232040}
   m_SourcePrefab: {fileID: 100100000, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
 --- !u!1 &2077113750847191477 stripped
 GameObject:
@@ -218,3 +253,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrailBySpeed2D
   trailRenderer: {fileID: 8018999202357990935}
   speedThreshold: 17
+--- !u!58 &811474403091232040
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077113750847191477}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3

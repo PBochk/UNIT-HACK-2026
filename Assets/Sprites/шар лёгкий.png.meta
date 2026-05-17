@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 120796fea760f49439aef3d81a213b88
+guid: 5e7e0c5f84bbf3a4da05fe1cf9c16d6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -54954978657406576
-    second: Score Background_0
+      213: -4361055971901835868
+    second: "\u0448\u0430\u0440 \u043B\u0451\u0433\u043A\u0438\u0439_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Score Background_0
+      name: "\u0448\u0430\u0440 \u043B\u0451\u0433\u043A\u0438\u0439_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 787
-        height: 156
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0917c72fcb2cc3ff0800000000000000
-      internalID: -54954978657406576
+      spriteID: 4a5f13d03ba6a73c0800000000000000
+      internalID: -4361055971901835868
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Score Background_0: -54954978657406576
+      "\u0448\u0430\u0440 \u043B\u0451\u0433\u043A\u0438\u0439_0": -4361055971901835868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

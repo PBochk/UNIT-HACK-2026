@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Mass
-      value: 0.01
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3498276022802205632, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Material
@@ -33,8 +33,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4361055971901835868, guid: 5e7e0c5f84bbf3a4da05fe1cf9c16d6f, type: 3}
+    - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Color.g
@@ -42,7 +46,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575437006826758973, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_Color.r
-      value: 0.8309201
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7611849649012443928, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,6 +110,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 894805526476329416}
+    - targetCorrespondingSourceObject: {fileID: 2510199652163822143, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3004635374701225012}
   m_SourcePrefab: {fileID: 100100000, guid: a68c0cc41735b7d4d84513f4c0600be9, type: 3}
 --- !u!1 &2077113750847191477 stripped
 GameObject:
@@ -242,3 +261,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrailBySpeed2D
   trailRenderer: {fileID: 8018999202357990935}
   speedThreshold: 17
+--- !u!58 &3004635374701225012
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077113750847191477}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3

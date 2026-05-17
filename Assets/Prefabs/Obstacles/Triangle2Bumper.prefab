@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BumperController
   bounceForce: 15
-  bounceAngle: 90
+  bounceAngle: 30
   simple: {fileID: 6300011496645033351, guid: a797ee91f780601409e225c7d1ef1e35, type: 3}
   bounce: {fileID: -7316760843846982324, guid: 76900dbb743cb1e4cb93ba1b705aaefa, type: 3}
   visualHoldTime: 0.1

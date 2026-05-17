@@ -213,10 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cee64a763347019575ff695271b05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlungerController
+  OnLaunch:
+    m_PersistentCalls:
+      m_Calls: []
   launchActionName: Plunger
   maxForce: 30
   pullSpeed: 3
-  releaseSpeed: 15
+  releaseSpeed: 20
   visualTransform: {fileID: 8960124997821518528}
   minSquishScaleY: 0.5
   launchZoneOffset: {x: 0, y: 2}
@@ -224,9 +227,6 @@ MonoBehaviour:
   ballLayer:
     serializedVersion: 2
     m_Bits: 64
-  OnLaunch:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3281725121355215183
 MonoBehaviour:
   m_ObjectHideFlags: 0
